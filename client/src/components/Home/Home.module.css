@@ -1,0 +1,31 @@
+.Home{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    height: 90%;
+    width: 80%;
+    margin: auto;
+}
+
+.Home__Header{
+    display: flex;
+    height: 30%;
+    border: 1px solid black;
+}
+
+.Home__Header__Text{
+    width: 70%;
+}
+
+/* ------------------------------------- */
+
+.Home__Header__Image{
+    width: 30%;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.Home__Header__Image img{
+    height: 100%;
+    
+}

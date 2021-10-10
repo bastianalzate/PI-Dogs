@@ -1,0 +1,108 @@
+.InitialPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90%;
+    width: 80%;
+    margin: auto;
+}
+
+/* ------------------------------------------------------------ */
+
+.InitialPage__Presentacion{
+    display: block;
+    width: 40%;
+    height: 60%;
+    padding-top: 40px;
+}
+
+.InitialPage__Presentacion h1{
+    font-size: 48px;
+}
+
+.InitialPage__Presentacion p{
+    font-size: 14px;
+    text-align: justify;
+}
+
+.InitialPage__Presentacion__Botones{
+    padding: 10px 0px 10px 0px;
+}
+
+.InitialPage__Presentacion__Botones button{
+    padding: 5px 20px 5px 20px;
+    font-size: 20px;
+}
+
+.InitialPage__Presentacion__Botones button img{
+    height: auto;
+    width: 14px;
+    margin-right: 5px;
+}
+
+#BotonUno{
+    margin-right: 30px;
+    background-color: rgb(43, 211, 226);
+    border: 1px solid rgb(43, 211, 226);
+    color: white;
+    border-radius: 8px;
+}
+
+#BotonDos{
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid rgb(182, 160, 182);
+    color: rgb(182, 160, 182);
+    border-radius: 8px;
+}
+
+
+.BotonNext{
+    font-size: 24px;
+    background-color: rgb(43, 211, 226);
+    border: none;
+    color: white;
+}
+
+.BotonPrev{
+    font-size: 24px;
+    background-color: rgb(43, 211, 226);
+    border: none;
+    color: white;
+    margin-right: 20px;
+}
+
+/* --------------------------------------------------------------- */
+
+.InitialPage__LineaBaja{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+}
+
+.InitialPage__LineaBaja__Social{
+    text-align: center;
+    width: 200px;
+    
+}
+
+
+
+.InitialPage__LineaBaja a img{
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: white;
+    border-radius: 15px;
+    border: 4px solid white;
+    box-shadow: 1px 4px 5px 3px black;
+}
+
+.InitialPage__LineaBaja__Botones{
+    padding: 10px 0px 10px 0px;
+}
+
+.InitialPage__LineaBaja__Botones button{
+    padding: 5px 10px 5px 10px;
+}

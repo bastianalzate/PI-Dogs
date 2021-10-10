@@ -1,0 +1,119 @@
+.Form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    height: 90%;
+    width: 80%;
+    margin: auto;
+}
+
+/* --------------------------------------------------- */
+.Form__Formulario{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 85%;
+    border-radius: 10px;
+    background-image: url("../../assets/otherImg/fondo8.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 3px 4px 5px 2px rgba(45, 14, 47, 0.582);
+}
+
+.Form__Formulario form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 90%;
+    margin: auto;
+}
+
+
+.Form__Formulario form div{
+    padding: 5px;
+    width: 97%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.Form__Formulario form div input{
+    outline: none;
+    border-radius: 3px;
+    border: none;
+    border-bottom: 1px solid black;
+    box-shadow: 1px 1px 2px 1px black;
+}
+
+.Form__Formulario form div input[type="text"]{
+    width: 60%;
+    padding: 5px 10px 5px 10px;
+}
+
+.Form__Formulario form div input[type="number"]{
+    width: 80%;
+    margin: 0px 5px 0px 5px;
+    padding: 5px 10px 5px 10px;
+}   
+
+.Form__Formulario form div select{
+    margin-top: 10px;
+    padding: 5px 10px 5px 10px;
+    outline: none;
+}
+
+.Form__Formulario form #Peso div, .Form__Formulario form #Altura div{
+    display: flex;
+    justify-content: center;
+}
+
+.Form__Formulario form #Submit button{
+    font-size: 18px;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid rgb(43, 211, 226);
+    background-color: rgb(43, 211, 226);
+    border-radius: 5px;
+    color: white;
+}
+
+/* ------------------------------------------------ */
+
+
+#Peso{
+    display: flex;
+}
+
+
+
+#Altura{    
+    display: flex;
+    justify-content: space-around;
+}
+
+#Select{
+    text-align: center;
+}
+
+#Submit{
+    text-align: center;
+}
+
+#Titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    height: 50px;
+    color: white;
+    margin-bottom: 10px;
+}  
+
+#Edad input{
+    width: 30%;
+}
+
+

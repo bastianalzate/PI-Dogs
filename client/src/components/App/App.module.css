@@ -1,0 +1,25 @@
+.App{
+
+}
+
+.App__InitialPage{
+  height: 100vh;
+  background-image: url("../../assets/img/p5.jpg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.App__Home{
+  height: 100vh;
+  
+  
+}
+
+.App__Formulario{
+  height: 100vh;
+  background-image: url("../../assets/img/p6.jpg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: left;
+}
