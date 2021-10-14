@@ -1,4 +1,5 @@
 import { Route, Switch } from 'react-router';
+import DescriptionDog from '../DescriptionDog/DescriptionDog';
 import Form from '../Form/Form';
 import Home from '../Home/Home';
 import InitialPage from '../InitialPage/InitialPage';
@@ -11,6 +12,12 @@ function App() {
   return (
     <div>
       <Switch>
+        <Route path="/dog-description/:id">
+          <div className={s.App__Description}>
+            <Navbar />
+            <DescriptionDog />
+          </div>
+        </Route>
         <Route path="/crear-dog">
           <div className={s.App__Formulario}>
             <Navbar />

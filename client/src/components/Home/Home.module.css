@@ -1,31 +1,39 @@
 .Home{
     display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    height: 90%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid green;
+    height: auto;
     width: 80%;
     margin: auto;
 }
 
-.Home__Header{
+.Home__ContainerCards{
     display: flex;
-    height: 30%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height:90%;
+    width: 100%;
+    padding: 20px 0px 20px 0px;
     border: 1px solid black;
 }
 
-.Home__Header__Text{
-    width: 70%;
+.Home__Container{
+    width: 100%;
+    border: 1px solid blue;
 }
 
-/* ------------------------------------- */
-
-.Home__Header__Image{
-    width: 30%;
+.Home__Container__Ordenamiento{
     border: 1px solid black;
-    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
 
-.Home__Header__Image img{
-    height: 100%;
-    
+.Home__Container__Ordenamiento div{
+    width: 33%;
+    border: 1px solid black;
 }
+

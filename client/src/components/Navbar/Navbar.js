@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/img/dog.png";
+import SearchBar from "../SearchBar/SearchBar";
 import s from "./Navbar.module.css";
 
 const Navbar = () => {
@@ -26,7 +27,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className={s.Navbar__Buscador}>
-                <input type="text" placeholder="Buscar raza..."/>
+                <SearchBar /> 
             </div>
         </div>
     )

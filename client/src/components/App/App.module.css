@@ -11,7 +11,7 @@
 }
 
 .App__Home{
-  height: 100vh;
+  height: 720px;
   
   
 }
@@ -22,4 +22,9 @@
   background-size: auto;
   background-repeat: no-repeat;
   background-position: left;
+}
+
+.App__Description{
+  height: 100vh;
+  border: 1px solid black;
 }
