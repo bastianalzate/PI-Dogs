@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import s from "./CardDog.module.css"
-import Generic from "../../assets/img/p3.jpg";
 import { useDispatch } from "react-redux";
 import { getDescription } from "../../actions/actions";
 
 const CardDog = ({nombre, peso, id, temperamento, imagen}) => {
     const pesoTemp = peso.metric.split("-")
-    const temperamentoTemp = temperamento.split(",")
+    const[color, setColor] = useState(false);
+    const temperamentoTemp = !temperamento ? ["N/A"] : temperamento.split(",")
     const dispatch = useDispatch()
+
     return(
         <div className={s.CardDog} key={id}>
             <div className={s.CardContainerTemperamento}>
                 <div className={s.CardTemperamento}>
-                    {temperamentoTemp.map((temp, index) => {
+                    {temperamentoTemp?.map((temp, index) => {
                         if(index < 6){
                             return <div className={s.divTemperamento}><span>{temp}</span></div>
                         }

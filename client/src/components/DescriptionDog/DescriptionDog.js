@@ -8,7 +8,7 @@ const DescriptionDog = () => {
     const { nombre, imagen, peso, altura, temperamento, edad} = dogDescription;
     const pesoTemp = peso.metric.split("-");
     const alturaTemp = altura.metric.split("-");
-    const temperamentoTemp = temperamento.split(",");
+    const temperamentoTemp = !temperamento ? ["N/A"] : temperamento.split(",")
     const edadTemp = edad.slice(0, 7).split("-");
     console.log(dogDescription);
 

@@ -9,7 +9,7 @@ const SearchBar = () => {
 
     useEffect(async () => {
         const respuesta = await axios.get("http://localhost:3001/dogs")
-        dispatch({type: "enviar", payload: respuesta.data.data})
+        dispatch({type: "CARGA_INICIAL", payload: respuesta.data.data})
     }, [])
 
 
@@ -27,7 +27,7 @@ const SearchBar = () => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        handleOnKeyUp(e)
+        
        
     }
 

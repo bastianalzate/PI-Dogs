@@ -16,9 +16,22 @@ export const getDogs = (name) => {
         fetch(`http://localhost:3001/dogs?nombre=${name}`)
         .then(response => response.json())
         .then(resultado => {
+            console.log("este es el resultado",resultado.data)
             dispatch({type: "enviar", payload: resultado.data})
         })
         .catch(err => console.log(err))
     }
 }
 
+
+export const ordenarDes = () => {
+    return { 
+        type: "ORDENAR_DES"
+    }
+}
+
+export const ordenarAsc = () => {
+    return { 
+        type: "ORDENAR_ASC"
+    }
+}

@@ -12,7 +12,8 @@ const getDogsApi = async () => {
             nombre: dog.name.toLowerCase(),
             temperamento: dog.temperament,
             imagen: dog.image,
-            edad: dog.life_span
+            edad: dog.life_span,
+            proviene: "api"
         }
     })
 
