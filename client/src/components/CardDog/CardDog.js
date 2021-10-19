@@ -4,14 +4,15 @@ import s from "./CardDog.module.css"
 import { useDispatch } from "react-redux";
 import { getDescription } from "../../actions/actions";
 
-const CardDog = ({nombre, peso, id, temperamento, imagen}) => {
-    const pesoTemp = peso.metric.split("-")
-    const[color, setColor] = useState(false);
+const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen}) => {
+    // const[color, setColor] = useState(false);
     const temperamentoTemp = !temperamento ? ["N/A"] : temperamento.split(",")
     const dispatch = useDispatch()
 
     return(
+        //Card container
         <div className={s.CardDog} key={id}>
+
             <div className={s.CardContainerTemperamento}>
                 <div className={s.CardTemperamento}>
                     {temperamentoTemp?.map((temp, index) => {
@@ -28,7 +29,7 @@ const CardDog = ({nombre, peso, id, temperamento, imagen}) => {
             
             <div className={s.CardContainerImg} >
                 <NavLink to={`/dog-description/${id}`} className={s.NavLinkContainer} >     
-                    <img src={imagen.url} onClick={() => dispatch(getDescription(id))}/>
+                    <img src={imagen} onClick={() => dispatch(getDescription(id))}/>
                 </NavLink>
             </div>
             
@@ -38,8 +39,8 @@ const CardDog = ({nombre, peso, id, temperamento, imagen}) => {
                 </div>
                 <div className={s.CardTextPeso}>
                     <h2>Peso</h2>
-                    <span>Min:{pesoTemp[0]}</span>
-                    <span>Max:{pesoTemp[1]}</span>
+                    <span>Min: {pesoMin} Kg</span>
+                    <span>Max: {pesoMax} Kg</span>
                 </div>
             </div>
         </div>

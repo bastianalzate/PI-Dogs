@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
-import { getDogs } from "../../actions/actions";
+import { getAllDogs, getDogsForName } from "../../actions/actions";
 import axios from "axios";
 
 const SearchBar = () => {
@@ -8,8 +8,8 @@ const SearchBar = () => {
     const dispatch = useDispatch();
 
     useEffect(async () => {
-        const respuesta = await axios.get("http://localhost:3001/dogs")
-        dispatch({type: "CARGA_INICIAL", payload: respuesta.data.data})
+        dispatch(getAllDogs())
+        
     }, [])
 
 
@@ -17,9 +17,9 @@ const SearchBar = () => {
         setInput(e.target.value);
     }
 
-    const handleOnKeyUp = async (e) => {
+    const handleOnKeyUp = (e) => {
         if(e.keyCode === 13){
-            dispatch(getDogs(input))
+            dispatch(getDogsForName(input))
         }
         
     }

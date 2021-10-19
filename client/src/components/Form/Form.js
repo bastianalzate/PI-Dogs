@@ -9,7 +9,9 @@ const Form = () => {
         alturaMin: "",
         pesoMax: "",
         pesoMin: "",
-        edad: ""
+        edadMax: "",
+        edadMin: "",
+        imagen: ""
     })
     const [error, setError] = useState({})
 
@@ -20,7 +22,9 @@ const Form = () => {
             alturaMin: "",
             pesoMax: "",
             pesoMin: "",
-            edad: ""
+            edadMax: "",
+            edadMin: "",
+            imagen: ""
         })
     }
 
@@ -50,7 +54,9 @@ const Form = () => {
             alturaMin: input.alturaMin,
             pesoMax: input.pesoMax,
             pesoMin: input.pesoMin,
-            edad: input.edad
+            edadMax: input.edadMax,
+            edadMin: input.edadMin,
+            imagen: input.imagen
         })
         return respuesta;
     }
@@ -60,7 +66,7 @@ const Form = () => {
         let error = {}
             
         if(input.nombre.length !== 0){
-            if(!/^[a-z ,.'-]+$/.test(input.nombre)) {
+            if(!/^[a-z A-Z,.'-]+$/.test(input.nombre)) {
             
                 error.nombre = "Nombre no valido";
             }
@@ -122,8 +128,17 @@ const Form = () => {
                         </div>
                     </div>
                     <div id={s.Edad}>
-                        <input name="edad" value={input.edad} onChange={handleOnChange} type="number" placeholder="Edad..."/>
-                        {error.edad && <p>{error.edad}</p>}
+                        <div>
+                            <input name="edadMax" value={input.edadMax} onChange={handleOnChange} type="number" placeholder="Edad Maxima..."/>
+                            {error.edadMax && <p>{error.edadMax}</p>}
+                        </div>
+                        <div>
+                            <input name="edadMin" value={input.edadMin} onChange={handleOnChange} type="number" placeholder="Edad Minima..."/>
+                            {error.edadMin && <p>{error.edadMin}</p>}
+                        </div>
+                    </div>
+                    <div>
+                        <input name="imagen" value={input.imagen} onChange={handleOnChange} type="text" placeholder="Ingrese la ruta de una imagen..."/>
                     </div>
                     <div id={s.Select}>
                         <select>

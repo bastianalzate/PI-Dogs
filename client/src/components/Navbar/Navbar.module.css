@@ -14,19 +14,13 @@
 
 .Navbar__Lista ul li{
     display: inline-block;
-    margin: 16px 10px 16px 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     font-size: 16px;
 }
-.Navbar__Lista ul li span{
-    padding: 16px 10px 16px 10px;
-}
 
-.Navbar__Lista ul li span:hover{
-    padding: 16px 10px 16px 10px;
-    background-image: url("../../assets/otherImg/b1.jpg");
-    background-size: cover;
-    background-position: center;
-}
+
+
 
 /* --------------------------------------------------- */
 
@@ -36,7 +30,6 @@
     height: 50px;
     width: 50px;
     border-radius: 50px;
-    border: 4px solid white;
 }
 
 
@@ -54,8 +47,6 @@
 /* --------------------------------------------------------- */
 
 .Active{
-    padding: 16px 10px 16px 10px;
-    background-image: url("../../assets/otherImg/b1.jpg");
-    background-size: cover;
-    background-position: center;
+    border-bottom: 2px solid red;
+    padding: 0px 2px 0px 2px;
 }

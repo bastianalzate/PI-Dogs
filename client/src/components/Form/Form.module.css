@@ -112,8 +112,12 @@
     margin-bottom: 10px;
 }  
 
+#Edad{
+    display: flex;
+}
+
 #Edad input{
-    width: 30%;
+    width: 80%;
 }
 
 

@@ -1,9 +1,8 @@
-const CREATE_DOG = "CREATE_DOG";
-const GET_ALL_DOG = "GET_ALL_DOG";
-const GET_DESCRIPTION = "GET_DESCRIPTION";
+// Obtener
+export const GET_ALL_DOGS = "GET_ALL_DOGS";
+export const GET_DOGS_FOR_NAME = "GET_DOGS_FOR_NAME";
+export const GET_DESCRIPTION = "GET_DESCRIPTION";
 
-exports = {
-    CREATE_DOG,
-    GET_ALL_DOG,
-    GET_DESCRIPTION
-}
+
+
+

@@ -27,8 +27,16 @@ module.exports = sequelize => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        edad: {
+        edadMax: {
             type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        edadMin: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        imagen: {
+            type: DataTypes.STRING,
             allowNull: true
         }
     })
