@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import s from "./Form.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { sendData, validarError } from "./controllerForm";
+import CardDog from "../CardDog/CardDog";
+import { useHistory } from "react-router";
+import { getAllDogs } from "../../actions/actions";
 
 const Form = () => {
+    const history = useHistory();
+    const dispatch = useDispatch(); 
     const [input, setInput] = useState({ // Coloque todos los estados en texto para evitar que al usar ClearState quede el placeholder con el valor de 0 y muestre el mensaje
         nombre: "",
         alturaMax: "",
@@ -11,9 +17,11 @@ const Form = () => {
         pesoMin: "",
         edadMax: "",
         edadMin: "",
-        imagen: ""
+        imagen: "",
+        temperamento: []
     })
     const [error, setError] = useState({})
+    const { temperaments } = useSelector(state => state)
 
     const clearState = () => {
         setInput({
@@ -24,7 +32,8 @@ const Form = () => {
             pesoMin: "",
             edadMax: "",
             edadMin: "",
-            imagen: ""
+            imagen: "",
+            temperamento: []
         })
     }
 
@@ -43,60 +52,29 @@ const Form = () => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        sendData();
+        sendData(input);
         clearState();
+        dispatch(getAllDogs()) // dispacho a getAllDog para que me aparezcan los cambios en el home
+        history.push("/home")
     }
-
-    const sendData = async () => {
-        const respuesta = await axios.post("http://localhost:3001/dogs",{
-            nombre: input.nombre,
-            alturaMax: input.alturaMax,
-            alturaMin: input.alturaMin,
-            pesoMax: input.pesoMax,
-            pesoMin: input.pesoMin,
-            edadMax: input.edadMax,
-            edadMin: input.edadMin,
-            imagen: input.imagen
-        })
-        return respuesta;
-    }
-
-
-    const validarError = (input) => {
-        let error = {}
-            
-        if(input.nombre.length !== 0){
-            if(!/^[a-z A-Z,.'-]+$/.test(input.nombre)) {
-            
-                error.nombre = "Nombre no valido";
-            }
-        }
-        
-        
-        if(input.alturaMin > input.alturaMax){
-            
-            error.alturaMin = "Altura minima no puede ser mayor que altura maxima";
-            error.alturaMax = "Altura maxima no puede ser menor que altura minima";
-        }
-
-        if(input.pesoMin > input.pesoMax){
-            
-            error.pesoMin = "Peso minimo no puede ser mayor que peso maximo";
-            error.pesoMax = "Peso maximo no puede ser menor que peso minimo";
-        }
-
-        if(input.edad < 0 || input.edad > 100 ){
-            error.edad = "Edad no valida"
-        }
-
-
-        return error;
-    }
-
-
     
     return(
-        <div className={s.Form}>   
+        <div className={s.Form}> 
+            <div className={s.CardPreview}>
+                <CardDog 
+                    nombre={input.nombre}
+                    alturaMax={input.alturaMax}
+                    alturaMin={input.alturaMin}
+                    pesoMax={input.pesoMax}
+                    pesoMin={input.pesoMin}
+                    edadMax={input.edadMax}
+                    edadMin={input.edadMin}
+                    imagen={input.imagen}
+                    temperamento={input.temperamento.join(",")} 
+                />
+            </div>
+
+            {/*Inicio del formulario*/}  
             <div className={s.Form__Formulario}>
                 <form onSubmit={handleOnSubmit}>
                     <div id={s.Titulo}>
@@ -141,11 +119,13 @@ const Form = () => {
                         <input name="imagen" value={input.imagen} onChange={handleOnChange} type="text" placeholder="Ingrese la ruta de una imagen..."/>
                     </div>
                     <div id={s.Select}>
-                        <select>
-                            <option>Ninguno</option>
-                            <option>Opcion 1</option>
-                            <option>Opcion 2</option>
-                            <option>Opcion 3</option>
+                        <select onChange={(e) => setInput({
+                            ...input,
+                            temperamento: [...input.temperamento, e.target.value]
+                        })}>
+                            {
+                                temperaments.map(temp => <option >{temp.nombre}</option>)
+                            }
                         </select>
                     </div>
                     <div id={s.Submit}>

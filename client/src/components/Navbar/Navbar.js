@@ -8,7 +8,7 @@ const Navbar = () => {
     return(
         <div className={s.Navbar}>
             <div className={s.Navbar__Logo}>
-                <NavLink to="/home">
+                <NavLink to="/">
                     <img src={Logo}/>
                 </NavLink>
             </div>
@@ -22,6 +22,11 @@ const Navbar = () => {
                     <NavLink to="/crear-dog" activeClassName={s.Active}>
                         <li>
                             <span>CREAR DOG</span>
+                        </li>
+                    </NavLink>
+                    <NavLink to="/favoritos" activeClassName={s.Active}>
+                        <li>
+                            <span>FAVORITOS</span>
                         </li>
                     </NavLink>
                 </ul>

@@ -11,7 +11,7 @@
 }
 
 .App__Home{
-  height: 720px;
+  height: 100vh;
   
   
 }
@@ -26,5 +26,12 @@
 
 .App__Description{
   height: 100vh;
-  border: 1px solid black;
+}
+
+.App__Favorite{
+  height: 100vh;
+}
+
+.App__404{
+  height: 100vh;
 }

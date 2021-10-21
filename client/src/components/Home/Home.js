@@ -1,39 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { paginacion } from "./controllerHome";
+import { ordenarAsc, ordenarDes, desdeApi, desdeDb, desdeTodos, ordenarPesoMin, ordenarPesoMax, filtrarTemperament, getAllDogs } from "../../actions/actions";
 import CardDog from "../CardDog/CardDog";
-import CardNew from "../CardNew/CardNew";
 import s from "./Home.module.css";
 
 const Home = () => {
     let [count, setCount] = useState(0);
-    let [proviene, setProviene] = useState("");
-    let [orden, setOrden] = useState("");
-    let {dogsForName, allDogs} = useSelector((state) => state);
-
-
-    //Valido los filtros
-    if(proviene === ""){
-        // validar si dogsForName viene vacio y en caso que venga vacio asignarle el valor de allDogs
-        if(dogsForName.length === 0){
-            dogsForName = allDogs;
-        }
-    }else{
-        // Validar que tipo de filtro hacer
-        switch(proviene){
-            case "API":
-                dogsForName = allDogs.filter(dog => dog.proviene === "API")
-                break;
-            case "DB":
-                dogsForName = allDogs.filter(dog => dog.proviene === "DB")
-                break;
-            case "TODOS":
-                dogsForName = allDogs;
-                break;
-            default: 
-                dogsForName = allDogs;
-        }
-    }
+    let { dogsFilter, temperaments } = useSelector((state) => state);
+    const dispatch = useDispatch();
 
     // funciones de los estados internos del componente
     const nextButton = () => {
@@ -44,38 +19,9 @@ const Home = () => {
         setCount(--count)
     }
 
-    const desdeApi = () => {
-        setProviene("API")
-    }
-
-    const desdeDb = () => {
-        setProviene("DB")
-    }
-    
-    const desdeTodos = () => {
-        setProviene("TODOS")
-    }
-
-    const ordenarAsc = () => {
-        setOrden("ASC")
-    }
-
-    const ordenarDes = () => {
-        setOrden("DES")
-    }
-
-    const ordenarPesoMin = () => {
-        setOrden("PESO_MIN")
-    }
-    
-    const ordenarPesoMax = () => {
-        setOrden("PESO_MAX")
-    }
-    
-
-    
     // asignacion y llamado a la funcion de paginacion
-    const resultado = paginacion(dogsForName, orden)
+    const resultado = paginacion(dogsFilter)
+
 
     return(
         <div className={s.Home}>
@@ -85,17 +31,22 @@ const Home = () => {
                     <div>
                         <span>Filtrar por:</span>
                         <br/>
-                        <button onClick={desdeApi}>API</button>
-                        <button onClick={desdeDb}>DB</button>
-                        <button onClick={desdeTodos}>Todos</button>
+                        <button onClick={() => dispatch(desdeApi())}>API</button>
+                        <button onClick={() => dispatch(desdeDb())}>DB</button>
+                        <button onClick={() => dispatch(desdeTodos())}>Todos</button>
+                        <select onChange={(e) => dispatch(filtrarTemperament(e.target.value))}>
+                            {
+                                temperaments.map(temp => <option >{temp.nombre}</option>)
+                            }
+                        </select>
                     </div>
                     <div>
                         <span>Ordenar: </span>
                         <br/>
-                        <button onClick={ordenarDes}>Des</button>
-                        <button onClick={ordenarAsc}>Asc</button>
-                        <button onClick={ordenarPesoMin}>Peso menor</button>
-                        <button onClick={ordenarPesoMax}>Peso mayor</button>
+                        <button onClick={() => dispatch(ordenarDes())}>Des</button>
+                        <button onClick={() => dispatch(ordenarAsc())}>Asc</button>
+                        <button onClick={() => dispatch(ordenarPesoMin())}>Peso menor</button>
+                        <button onClick={() => dispatch(ordenarPesoMax())}>Peso mayor</button>
                         
                     </div>
                     <div>
@@ -112,12 +63,12 @@ const Home = () => {
             <div className={s.Home__ContainerCards}>
                 {/* <CardNew /> */}
                 {
-                    dogsForName ? 
+                    dogsFilter ? 
                     resultado[count]?.map((dog) => {
                         return <CardDog {...dog}/>
                     })
-                    :
-                    null
+                    : 
+                    <h1>No existe lo buscado</h1>
                 }
             </div>
             <div>

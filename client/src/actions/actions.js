@@ -2,8 +2,22 @@ import {
     GET_ALL_DOGS, 
     GET_DESCRIPTION,
     GET_DOGS_FOR_NAME, 
+    ORDER_ASC,
+    ORDER_DES,
+    DESDE_API,
+    DESDE_DB,
+    DESDE_TODOS,
+    ORDER_PESO_MIN,
+    ORDER_PESO_MAX,
+    GET_ALL_TEMPERAMENT,
+    FILTRAR_TEMPERAMENT,
+    // ----------------------
+    ADD_FAVORITES,
 } from "../action-types/index";
 
+
+
+//Obtener
 
 // Action para obtener datos desde el back el cual esta corriendo en el puerto 3001
 export const getAllDogs = () => {
@@ -12,7 +26,18 @@ export const getAllDogs = () => {
         fetch("http://localhost:3001/dogs")
         .then(response => response.json())
         .then(response => {
-            dispatch({type: GET_ALL_DOGS, payload: response})
+            const mapeo = response.map(dog => {
+                if(dog.proviene === "API") return dog;
+
+                else if(dog.proviene === "DB") { // Aplico logica extra a los que vienen de la DB ya que viene un objeto y quiero convertilo en un string
+                    const temp = dog.temperamento.map(tempe => tempe.nombre)
+                    return {
+                        ...dog,
+                        temperamento: temp.join(",")
+                    }
+                }
+            })
+            dispatch({type: GET_ALL_DOGS, payload: mapeo})
         })
         .catch(err => new Error(err))
     }   
@@ -37,59 +62,89 @@ export const getDescription = (id) => {
 }
 
 
+export const getAllTemperament = () => {
+    // Obtengo todos los temperamentos de mi back
+    return (dispatch) => {
+        fetch("http://localhost:3001/temperament")
+        .then(response => response.json())
+        .then(response => {
+            dispatch({type: GET_ALL_TEMPERAMENT, payload: response})
+        })
+    }
+}
 
-// export const ordenarAsc = () => {
-//     return {
-//         type: ORDER_ASC,
-//     }
-// }
-
-
-// export const ordenarDes = () => {
-//     return {
-//         type: ORDER_DES,
-//     }
-// }
-
-
-
-
-
-
-
+// -----------------------------------------
+//Ordenamiento
+export const ordenarAsc = () => {
+    return {
+        type: ORDER_ASC,
+    }
+}
 
 
+export const ordenarDes = () => {
+    return {
+        type: ORDER_DES,
+    }
+}
+
+
+export const ordenarPesoMin = () => {
+    return {
+        type: ORDER_PESO_MIN,
+    }
+}
+
+
+export const ordenarPesoMax = () => {
+    return {
+        type: ORDER_PESO_MAX,
+    }
+}
+
+
+// ------------------------------------------
+// Filtrados
+
+export const desdeApi = () => {
+    return {
+        type: DESDE_API,
+    }
+}
+
+
+export const desdeDb = () => {
+    return {
+        type: DESDE_DB,
+    }
+}
+
+
+export const desdeTodos = () => {
+    return {
+        type: DESDE_TODOS,
+    }
+}
+
+export const filtrarTemperament = (temperamento) => {
+    return {
+        type: FILTRAR_TEMPERAMENT,
+        payload: temperamento
+    }
+}
+
+
+// ---------------------------------------------
+// Funcionalidades extras agregada por mi
+
+export const addFavorites = (id) => {
+    return {
+        type: ADD_FAVORITES,
+        payload: id
+    }
+}
 
 
 
 
 
-
-// ----------------------------------------------------------------
-
-
-
-// export const getDogs = (name) => {
-//     return (dispatch) => {
-//         fetch(`http://localhost:3001/dogs?nombre=${name}`)
-//         .then(response => response.json())
-//         .then(resultado => {
-//             console.log("este es el resultado",resultado.data)
-//             dispatch({type: "OBTENER_POR_NOMBRE", payload: resultado.data})
-//         })
-//         .catch(err => console.log(err))
-//     }
-// }
-
-
-// export const ordenarDes = () => {
-//     return { 
-//         type: "ORDENAR_DES"
-//     }
-// }
-
-// export const ordenarAsc = () => {
-//     return { 
-//         type: "ORDENAR_ASC"
-//     }
-// }

@@ -1,6 +1,6 @@
 const axios = require("axios");
 const { Op } = require("sequelize");
-const { Dog } = require("../db");
+const { Dog, Temperamento } = require("../db");
 
 // Query a la base de datos en el cual traera solo los que contengan lo que pasamos por el parametro nombre
 const getDogsForNameDb = async (nombre) => { 
@@ -132,7 +132,15 @@ const getAllDogsApi = async () => {
 const getAllDogsDb = async () => {
     try{
         // Traigo todos los datos de la base de datos.
-        const resultado = await Dog.findAll();
+        const resultado = await Dog.findAll({
+            include: Temperamento
+        });
+        
+        
+        
+
+        console.log(resultado)
+
 
         // Mapeo el cada uno de los resultados para modificar el objeto que envio al front
         const listaDogs = await resultado.map(dog => {
@@ -146,7 +154,8 @@ const getAllDogsDb = async () => {
                 imagen: dog.imagen,
                 edadMin: dog.edadMin,
                 edadMax: dog.edadMax,
-                proviene: "DB"
+                proviene: "DB",
+                temperamento: dog.Temperamentos
             }
         })
         return listaDogs;

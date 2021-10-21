@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
-import { getAllDogs, getDogsForName } from "../../actions/actions";
-import axios from "axios";
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router";
+import { getAllDogs, getAllTemperament, getDogsForName } from "../../actions/actions";
 
 const SearchBar = () => {
     const [input, setInput] = useState("");
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect(async () => {
         dispatch(getAllDogs())
-        
+        dispatch(getAllTemperament())
     }, [])
 
 
@@ -20,18 +21,16 @@ const SearchBar = () => {
     const handleOnKeyUp = (e) => {
         if(e.keyCode === 13){
             dispatch(getDogsForName(input))
+            setInput("");
+            history.push("/home")
         }
         
     }
 
-
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        
-       
     }
 
-   
 
     return(
         <div>

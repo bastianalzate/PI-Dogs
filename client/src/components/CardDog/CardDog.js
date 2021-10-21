@@ -2,16 +2,24 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import s from "./CardDog.module.css"
 import { useDispatch } from "react-redux";
-import { getDescription } from "../../actions/actions";
+import { getDescription, addFavorites } from "../../actions/actions";
 
-const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen}) => {
-    // const[color, setColor] = useState(false);
-    const temperamentoTemp = !temperamento ? ["N/A"] : temperamento.split(",")
+const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, proviene}) => {
+    const[color, setColor] = useState(false);
+    const temperamentoTemp = !temperamento ? ["N/A"] : temperamento.split(",") // Valido si no vienen datos aplico un N/A, de lo contrario spliteo el string que me llega
     const dispatch = useDispatch()
+
+
+    const handleOnClick = () => {
+        dispatch(addFavorites({
+            id, nombre, pesoMax, pesoMin, temperamento, imagen, proviene
+        }))
+        setColor(!color)
+    }
 
     return(
         //Card container
-        <div className={s.CardDog} key={id}>
+        <div className={s.CardDog} style={color ? {backgroundColor: "purple", color: "white"} :{backgroundColor: "black", color: "white"}}>
 
             <div className={s.CardContainerTemperamento}>
                 <div className={s.CardTemperamento}>
@@ -22,14 +30,14 @@ const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen}) => {
                     })}
                 </div>
                 <div>
-                    <button>O</button>
+                    <button onClick={handleOnClick}>Fav</button>
                 </div>
             </div>
 
             
             <div className={s.CardContainerImg} >
                 <NavLink to={`/dog-description/${id}`} className={s.NavLinkContainer} >     
-                    <img src={imagen} onClick={() => dispatch(getDescription(id))}/>
+                    <img src={imagen} alt="Ingresa una Img..." onClick={() => dispatch(getDescription(id))}/>
                 </NavLink>
             </div>
             
