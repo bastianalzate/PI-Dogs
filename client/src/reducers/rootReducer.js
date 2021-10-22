@@ -13,6 +13,7 @@ import {
     FILTRAR_TEMPERAMENT,
     // -----------------------------
     ADD_FAVORITES,
+  
 } 
 from "../action-types/index";
 
@@ -23,7 +24,6 @@ const initialState = {
     dogDescription: {},
     temperaments: [],
     favoritesDogs: [],
-    existeDog: true
 }
 
 
@@ -47,6 +47,7 @@ const rootReducer = (state = initialState, action) => {
                 if(dogName.nombre.includes(action.payload)) return dogName;
             })
 
+            // console.log(arrayAux)
             return {
                 ...state,
                 dogsFilter: arrayAux
@@ -122,6 +123,7 @@ const rootReducer = (state = initialState, action) => {
 
         case DESDE_API:
             arrayAux = state.allDogs.filter(dog => dog.proviene === "API");
+            arrayAux.sort()
             return{
                 ...state,
                 dogsFilter: arrayAux
@@ -130,6 +132,7 @@ const rootReducer = (state = initialState, action) => {
 
         case DESDE_DB:
             arrayAux = state.allDogs.filter(dog => dog.proviene === "DB");
+            arrayAux.sort()
             return{
                 ...state,
                 dogsFilter: arrayAux
@@ -137,7 +140,7 @@ const rootReducer = (state = initialState, action) => {
 
 
         case DESDE_TODOS:
-            arrayAux = state.allDogs;
+            arrayAux = state.allDogs.map(dog => dog);
             return{
                 ...state,
                 dogsFilter: arrayAux
@@ -174,6 +177,7 @@ const rootReducer = (state = initialState, action) => {
                     }
                 }
             }
+
 
 
         default:

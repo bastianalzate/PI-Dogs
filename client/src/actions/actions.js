@@ -13,6 +13,7 @@ import {
     FILTRAR_TEMPERAMENT,
     // ----------------------
     ADD_FAVORITES,
+ 
 } from "../action-types/index";
 
 
@@ -27,7 +28,30 @@ export const getAllDogs = () => {
         .then(response => response.json())
         .then(response => {
             const mapeo = response.map(dog => {
-                if(dog.proviene === "API") return dog;
+                if(dog.proviene === "API"){
+                    if(dog.pesoMax && dog.pesoMin) return dog;
+                    else{
+                        if(!dog.pesoMax && !dog.pesoMin){
+                            return {
+                                ...dog,
+                                pesoMin: "N/A",
+                                pesoMax: "N/A",
+                            }
+                        }
+
+                        if(!dog.pesoMax){
+                            return {
+                                ...dog,
+                                pesoMax: "N/A",
+                            }
+                        }else{
+                            return {
+                                ...dog,
+                                pesoMin: "N/A",
+                            }
+                        }
+                    }
+                }
 
                 else if(dog.proviene === "DB") { // Aplico logica extra a los que vienen de la DB ya que viene un objeto y quiero convertilo en un string
                     const temp = dog.temperamento.map(tempe => tempe.nombre)
@@ -143,8 +167,6 @@ export const addFavorites = (id) => {
         payload: id
     }
 }
-
-
 
 
 

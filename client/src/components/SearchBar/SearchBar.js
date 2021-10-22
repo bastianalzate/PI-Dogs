@@ -15,17 +15,19 @@ const SearchBar = () => {
 
 
     const handleOnChange = (e) => {
-        setInput(e.target.value);
+        setInput(e.target.value)
+        dispatch(getDogsForName(input))
+        history.push("/home")
     }
 
-    const handleOnKeyUp = (e) => {
-        if(e.keyCode === 13){
-            dispatch(getDogsForName(input))
-            setInput("");
-            history.push("/home")
-        }
+    // const handleOnKeyUp = (e) => {
+    //     if(e.keyCode === 13){
+            
+    //         setInput("");
+    //         
+    //     }
         
-    }
+    // }
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
@@ -35,7 +37,7 @@ const SearchBar = () => {
     return(
         <div>
             <form onSubmit={handleOnSubmit}>
-                <input name="nombre" value={input} onChange={handleOnChange} onKeyUp={handleOnKeyUp} placeholder="Buscar por raza..." />
+                <input name="nombre" value={input} onChange={handleOnChange}  placeholder="Buscar por raza..." />
             </form>
         </div>
     )

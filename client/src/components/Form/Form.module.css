@@ -1,11 +1,12 @@
 .Form{
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    /* justify-content: end; */
     align-items: flex-start;
     height: 90%;
     width: 80%;
     margin: auto;
+    border: 1px solid black;
 }
 
 /* ---------------------------------------------- */
@@ -25,7 +26,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 30px;
-    width: 35%;
+    width: 50%;
     height: 85%;
     border-radius: 10px;
     background-image: url("../../assets/otherImg/fondo8.jpg");
@@ -34,24 +35,25 @@
     background-size: cover;
     box-shadow: 3px 4px 5px 2px rgba(45, 14, 47, 0.582);
     border: 1px solid black;
+
 }
 
 .Form__Formulario form{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 80%;
     width: 90%;
     margin: auto;
+    color: white;
+    font-size: 14px;
 }
 
 
 .Form__Formulario form div{
     padding: 5px;
     width: 97%;
-    text-align: center;
     margin-bottom: 10px;
+    border: 1px solid black;
 }
 
 

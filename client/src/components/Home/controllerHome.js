@@ -1,3 +1,4 @@
+
 export const paginacion = (dogs) => {
     let resultado = [];
     let newArray = [];
@@ -36,5 +37,7 @@ export const paginacion = (dogs) => {
             }
         }
     }
+
+
     return resultado;
 }

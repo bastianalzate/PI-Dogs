@@ -1,26 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { paginacion } from "./controllerHome";
-import { ordenarAsc, ordenarDes, desdeApi, desdeDb, desdeTodos, ordenarPesoMin, ordenarPesoMax, filtrarTemperament, getAllDogs } from "../../actions/actions";
+import { ordenarAsc, ordenarDes, desdeApi, desdeDb, desdeTodos, ordenarPesoMin, ordenarPesoMax, filtrarTemperament } from "../../actions/actions";
 import CardDog from "../CardDog/CardDog";
 import s from "./Home.module.css";
 
 const Home = () => {
-    let [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
     let { dogsFilter, temperaments } = useSelector((state) => state);
     const dispatch = useDispatch();
 
-    // funciones de los estados internos del componente
-    const nextButton = () => {
-        setCount(++count)
+    const handleOnChange = (e) => {
+        dispatch(filtrarTemperament(e.target.value))
     }
 
-    const prevButton = () => {
-        setCount(--count)
+    const incrementar = () => {
+        setCount(count + 1);
     }
+
+    const decrementar = () => {
+        setCount(count - 1);
+    }
+
+    const handleOnClick = (e) => {
+        // filtrados
+        if(e.target.name === "api") dispatch(desdeApi());
+        if(e.target.name === "db") dispatch(desdeDb());
+        if(e.target.name === "todos") dispatch(desdeTodos());
+
+
+        // ordenamiento
+        if(e.target.name === "des") dispatch(ordenarDes());
+        if(e.target.name === "asc") dispatch(ordenarAsc());
+        if(e.target.name === "pesoMin") dispatch(ordenarPesoMin());
+        if(e.target.name === "pesoMax") dispatch(ordenarPesoMax());
+    
+        //Seteo el count para que la paginacion quede en la pagina 1 despues de cada filtro o ordenamiento
+        setCount(0)
+    }
+
+  
 
     // asignacion y llamado a la funcion de paginacion
-    const resultado = paginacion(dogsFilter)
+    const resultado = paginacion(dogsFilter, setCount)
+    
 
 
     return(
@@ -31,10 +54,10 @@ const Home = () => {
                     <div>
                         <span>Filtrar por:</span>
                         <br/>
-                        <button onClick={() => dispatch(desdeApi())}>API</button>
-                        <button onClick={() => dispatch(desdeDb())}>DB</button>
-                        <button onClick={() => dispatch(desdeTodos())}>Todos</button>
-                        <select onChange={(e) => dispatch(filtrarTemperament(e.target.value))}>
+                        <button name="api" onClick={handleOnClick}>API</button>
+                        <button name="db" onClick={handleOnClick}>DB</button>
+                        <button name="todos" onClick={handleOnClick}>Todos</button>
+                        <select onChange={handleOnChange}>
                             {
                                 temperaments.map(temp => <option >{temp.nombre}</option>)
                             }
@@ -43,22 +66,22 @@ const Home = () => {
                     <div>
                         <span>Ordenar: </span>
                         <br/>
-                        <button onClick={() => dispatch(ordenarDes())}>Des</button>
-                        <button onClick={() => dispatch(ordenarAsc())}>Asc</button>
-                        <button onClick={() => dispatch(ordenarPesoMin())}>Peso menor</button>
-                        <button onClick={() => dispatch(ordenarPesoMax())}>Peso mayor</button>
+                        <button name="des" onClick={handleOnClick}>Des</button>
+                        <button name="asc" onClick={handleOnClick}>Asc</button>
+                        <button name="pesoMin" onClick={handleOnClick}>Peso menor</button>
+                        <button name="pesoMax" onClick={handleOnClick}>Peso mayor</button>
                         
                     </div>
                     <div>
-                        <input type="text" placeholder="Buscar por temperamento"/>
+                        
                     </div>
                 </div>
             </div>
 
 
             <div>
-                {count > 0 && <button onClick={prevButton}>Prev</button>}
-                {count >= 0 && count < resultado.length - 1 && <button onClick={nextButton}>Next</button>}
+                {count > 0 && <button onClick={decrementar}>Prev</button>}
+                {count >= 0 && count < resultado.length - 1 && <button onClick={incrementar}>Next</button>}
             </div>
             <div className={s.Home__ContainerCards}>
                 {/* <CardNew /> */}
@@ -72,9 +95,8 @@ const Home = () => {
                 }
             </div>
             <div>
-                {count > 0 && <button onClick={prevButton}>Prev</button>}
-                {count >= 0 && count < resultado.length - 1 && <button onClick={nextButton}>Next</button>}
-                
+                {count > 0 && <button onClick={() => dispatch(decrementar())}>Prev</button>}
+                {count >= 0 && count < resultado.length - 1 && <button onClick={() => dispatch(incrementar())}>Next</button>}
             </div>
         </div>
     )
