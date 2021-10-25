@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import s from "./CardFormulario.module.css";
 import { NavLink } from "react-router-dom";
 
-const CardFormulario = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, colorFondo}) => {
+const CardFormulario = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, colorFondo, mostrarLista}) => {
     const dispatch = useDispatch()
     return(
         <div className={s.CardDog} style={colorFondo ? {backgroundColor: colorFondo, color: "white"} : {backgroundColor: "black", color: "white"}}>
@@ -16,7 +16,7 @@ const CardFormulario = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, co
                     })}
                 </div>
                 <div>
-                    <button>Editar</button>
+                    <button onClick={() => mostrarLista()}>Editar</button>
                 </div>
             </div>
 

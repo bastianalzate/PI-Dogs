@@ -253,8 +253,21 @@
 
 /* Card */
 .Form .Card__Formulario{
+    display: flex;
     background-color: purple;
     width: 50%;
     padding-top: 20px;
-    padding-left: 20px;
+    padding-left: 5px;
+}
+
+.Form .Card__Formulario .Card{
+    width: 55%;
+}
+
+.Form .Card__Formulario .Lista__Temperamentos{
+    padding-top: 10px;
+    width: 40%;
+    margin-left: 0px;
+    border: 1px solid white;
+    padding: 10px;
 }

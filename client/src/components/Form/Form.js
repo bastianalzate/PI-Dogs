@@ -6,8 +6,10 @@ import { useHistory } from "react-router";
 import { getAllDogs } from "../../actions/actions";
 import Validate from "../../assets/other/check.png"
 import CardFormulario from "../CardFormulario/CardFormulario";
+import ListaTemperamentos from "../ListaTemperamentos/ListaTemperamentos";
 
 const Form = () => {
+    const [editarLista, setEditarLista] = useState(false);
     const history = useHistory();
     const dispatch = useDispatch(); 
     const [input, setInput] = useState({ // Coloque todos los estados en texto para evitar que al usar ClearState quede el placeholder con el valor de 0 y muestre el mensaje
@@ -57,6 +59,17 @@ const Form = () => {
         
     }
 
+
+    const agregarTemperamento = (e) => {
+        const encontrado = input.temperamento.find(temp => temp === e.target.value)
+        if(!encontrado){
+            setInput({
+                ...input,
+                temperamento: [...input.temperamento, e.target.value]
+            })
+        }
+    }
+
     const handleOnSubmit = (e) => {
         e.preventDefault();
         if(error.nombre || error.alturaMin || error.alturaMax || error.pesoMax || error.pesoMin || error.edadMax || error.edadMin){
@@ -68,6 +81,20 @@ const Form = () => {
             dispatch(getAllDogs()) // dispacho a getAllDog para que me aparezcan los cambios en el home
             history.push("/home")
         }
+    }
+
+
+    const eliminarTemperamento = (tempe) => {
+        const arrayAux = input.temperamento.filter(temp => temp !== tempe)
+        setInput({
+            ...input,
+            temperamento: arrayAux
+        })
+    }
+
+
+    const mostrarLista = () => {
+        setEditarLista(!editarLista)
     }
     
     return(
@@ -176,10 +203,7 @@ const Form = () => {
                         !error.nombre && !error.alturaMax && !error.alturaMin && !error.pesoMin && !error.pesoMax && !error.edadMax && !error.edadMin && 
                         <div className={s.Temperamentos}>
                             <label>Temperamentos:</label>
-                            <select onChange={(e) => setInput({
-                                ...input,
-                                temperamento: [...input.temperamento, e.target.value]
-                            })}>
+                            <select onChange={agregarTemperamento}>
                                 {
                                     temperaments.map(temp => <option >{temp.nombre}</option>)
                                 }
@@ -206,7 +230,14 @@ const Form = () => {
 
             {/* Tarjeta de vista previa */}
             <div className={s.Card__Formulario}>
-                <CardFormulario {...input}/>
+                <div className={s.Card}>
+                    <CardFormulario {...input} mostrarLista={mostrarLista}/>
+                </div>
+                <div className={s.Lista__Temperamentos}>
+                    {
+                        editarLista && input.temperamento?.map(tempe => <ListaTemperamentos temperamento={tempe} eliminarTemperamento={eliminarTemperamento}/>)
+                    }
+                </div>
             </div>
         </div>
     )
