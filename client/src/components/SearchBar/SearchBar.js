@@ -20,15 +20,6 @@ const SearchBar = () => {
         history.push("/home")
     }
 
-    // const handleOnKeyUp = (e) => {
-    //     if(e.keyCode === 13){
-            
-    //         setInput("");
-    //         
-    //     }
-        
-    // }
-
     const handleOnSubmit = (e) => {
         e.preventDefault();
     }

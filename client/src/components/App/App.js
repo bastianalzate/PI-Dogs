@@ -18,11 +18,11 @@ function App() {
             <Favorites />
           </div>
         </Route>
-        <Route exact path="/dog-description/:id">
-          <div className={s.App__Description}>
-            <Navbar />
-            <DescriptionDog />
-          </div>
+        {/* <Route path={`/movie/:id`}>
+          {({match}) => <Movie match={match}/>}
+        </Route> */}
+        <Route exact path={`/dog-description/:id`}>
+          {({match}) => <DescriptionDog match={match}/>}
         </Route>
         <Route exact path="/crear-dog">
           <div className={s.App__Formulario}>

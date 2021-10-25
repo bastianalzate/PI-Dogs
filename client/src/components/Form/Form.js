@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import s from "./Form.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { sendData, validarError } from "./controllerForm";
-import CardDog from "../CardDog/CardDog";
 import { useHistory } from "react-router";
 import { getAllDogs } from "../../actions/actions";
+import Validate from "../../assets/other/check.png"
+import CardFormulario from "../CardFormulario/CardFormulario";
 
 const Form = () => {
     const history = useHistory();
@@ -18,9 +19,14 @@ const Form = () => {
         edadMax: "",
         edadMin: "",
         imagen: "",
-        temperamento: []
+        temperamento: [],
+        colorFondo: ""
     })
-    const [error, setError] = useState({})
+    const [error, setError] = useState({
+        nombre: "Es requerido",
+        alturaMin: "Es requerido",
+        alturaMax: "Es requerido",
+    })
     const { temperaments } = useSelector(state => state)
 
     const clearState = () => {
@@ -33,7 +39,8 @@ const Form = () => {
             edadMax: "",
             edadMin: "",
             imagen: "",
-            temperamento: []
+            temperamento: [],
+            colorFondo: ""
         })
     }
 
@@ -72,92 +79,134 @@ const Form = () => {
                 <form onSubmit={handleOnSubmit}>
                     {/* <div id={s.Titulo}>
                         <h2>Crear Dog</h2>
-                    </div> */}
-                    <div id={s.Raza}>
-                        <label>Nombre:</label>
-                        <br/>
-                        <input name="nombre" value={input.nombre} onChange={handleOnChange} type="text" placeholder="Nombre..."/>
-                        {error.nombre && <p>{error.nombre}</p>}
                     </div>
-                    <div id={s.Altura}>
-                        <div>
-                            <label>Altura Max:</label>
-                            <br/>
-                            <input name="alturaMax" value={input.alturaMax} onChange={handleOnChange} type="number" placeholder="Altura Maxima..."/>
-                            {error.alturaMax && <p>{error.alturaMax}</p>}
+                    <hr/> */}
+                    <div className={s.Raza}>
+                        <div className={s.Titulo__Raza}>
+                            <span>Raza</span>
                         </div>
-                        <div>
-                            <label>Altura Min:</label>
-                            <br/>
-                            <input name="alturaMin" value={input.alturaMin} onChange={handleOnChange} type="number" placeholder="Altura Minima..."/>
-                            <br/>
-                            {error.alturaMin && <p>{error.alturaMin}</p>}
+                        <div className={s.Container__Raza}>
+                            <label>Nombre:</label>
+                            <input name="nombre" value={input.nombre} onChange={handleOnChange} type="text" placeholder="Nombre..."  style={error.nombre && {border: "1px solid red"}}/> {!error.nombre && <span><img src={Validate} /></span>}
                         </div>
+                        {error.nombre && <div className={s.Container__Error}><span>{error.nombre}</span></div>}
                     </div>
-                    <div id={s.Peso}>
-                        <div>
-                            <label>Peso Max:</label>
-                            <br/>
-                            <input name="pesoMax" value={input.pesoMax} onChange={handleOnChange} type="number" placeholder="Peso Maximo..."/>
-                            {error.pesoMax && <p>{error.pesoMax}</p>}
+                    <hr/>
+                    {
+                        !error.nombre &&
+                        <div className={s.Altura}>
+                            <div className={s.Titulo__Altura}>
+                                <span>Altura</span>
+                            </div>
+                            <div className={s.Container__Alturas}>
+                                <div className={s.AlturaMax}>
+                                    <label>Max:</label>
+                                    <input name="alturaMax" value={input.alturaMax} onChange={handleOnChange} type="number" placeholder="Altura Maxima..." style={error.alturaMax && {border: "1px solid red"}}/>
+                                    {error.alturaMax && <div className={s.Container__Error}><span>{error.alturaMax}</span></div>}
+                                </div>
+                                <div className={s.AlturaMin}>
+                                    <label>Min:</label>
+                                    <input name="alturaMin" value={input.alturaMin} onChange={handleOnChange} type="number" placeholder="Altura Minima..." style={error.alturaMin && {border: "1px solid red"}}/>
+                                    {error.alturaMin && <div className={s.Container__Error}><span>{error.alturaMin}</span></div>}
+                                </div>
+                            </div>
+                            <hr/>
                         </div>
-                        <div>
-                            <label>Peso Min:</label>
-                            <br/>
-                            <input name="pesoMin" value={input.pesoMin} onChange={handleOnChange} type="number" placeholder="Peso Minimo..."/>
-                            {error.pesoMin && <p>{error.pesoMin}</p>}
+                    }
+                    
+                    {
+                        !error.nombre && !error.alturaMax && !error.alturaMin &&
+                        <div className={s.Peso}>
+                            <div className={s.Titulo__Peso}>
+                                <span>Peso</span>
+                            </div>
+                            <div className={s.Container__Peso}>
+                                <div className={s.PesoMax}>
+                                    <label>Max:</label>
+                                    <input name="pesoMax" value={input.pesoMax} onChange={handleOnChange} type="number" placeholder="Peso Maximo..." style={error.pesoMax && {border: "1px solid red"}}/>
+                                    {error.pesoMax && <div className={s.Container__Error}><span>{error.pesoMax}</span></div>}
+                                </div>
+                                <div className={s.PesoMin}>
+                                    <label>Min:</label>
+                                    <input name="pesoMin" value={input.pesoMin} onChange={handleOnChange} type="number" placeholder="Peso Minimo..." style={error.pesoMin && {border: "1px solid red"}}/>
+                                    {error.pesoMin && <div className={s.Container__Error}><span>{error.pesoMin}</span></div>}
+                                </div>
+                            </div>
+                            <hr/>
                         </div>
-                    </div>
-                    <div id={s.Edad}>
-                        <div>
-                            <label>Edad Max:</label>
-                            <br/>
-                            <input name="edadMax" value={input.edadMax} onChange={handleOnChange} type="number" placeholder="Edad Maxima..."/>
-                            {error.edadMax && <p>{error.edadMax}</p>}
+                    }
+                    
+                    {
+                        !error.nombre && !error.alturaMax && !error.alturaMin && !error.pesoMin && !error.pesoMax &&
+                        <div className={s.Edad}>
+                            <div className={s.Titulo__Edad}>
+                                <span>Edad</span>
+                            </div>
+                            <div className={s.Container__Edad}>
+                                <div className={s.EdadMax}>
+                                    <label>Max:</label>
+                                    <input name="edadMax" value={input.edadMax} onChange={handleOnChange} type="number" placeholder="Edad Maxima..." style={error.edadMax && {border: "1px solid red"}}/>
+                                    {error.edadMax && <div className={s.Container__Error}><span>{error.edadMax}</span></div>}
+                                </div>
+                                <div className={s.EdadMin}>
+                                    <label>Min:</label>
+                                    <input name="edadMin" value={input.edadMin} onChange={handleOnChange} type="number" placeholder="Edad Minima..." style={error.edadMin && {border: "1px solid red"}}/>
+                                    {error.edadMin && <div className={s.Container__Error}><span>{error.edadMin}</span></div>}
+                                </div>
+                            </div>
+                            <hr/>
                         </div>
-                        <div>
-                            <label>Edad Min:</label>
-                            <br/>
-                            <input name="edadMin" value={input.edadMin} onChange={handleOnChange} type="number" placeholder="Edad Minima..."/>
-                            {error.edadMin && <p>{error.edadMin}</p>}
+                    }
+                    
+                    {
+                        !error.nombre && !error.alturaMax && !error.alturaMin && !error.pesoMin && !error.pesoMax && !error.edadMax && !error.edadMin &&
+                        <div className={s.Imagen}>
+                            <div className={s.Titulo__Imagen}>
+                                <span>Imagen</span>
+                            </div>
+                            <div className={s.Container__Imagen}>
+                                <label>Url:</label>
+                                <input name="imagen" value={input.imagen} onChange={handleOnChange} type="text" placeholder="Ingrese la ruta de una imagen..."/>
+                            </div>
+                            <hr/>
                         </div>
-                    </div>
-                    <div>
-                        <label>Imagen:</label>
-                        <br/>   
-                        <input name="imagen" value={input.imagen} onChange={handleOnChange} type="text" placeholder="Ingrese la ruta de una imagen..."/>
-                    </div>
-                    <div id={s.Select}>
-                        <label>Temperamentos:</label>
-                        <br/>
-                        <select onChange={(e) => setInput({
-                            ...input,
-                            temperamento: [...input.temperamento, e.target.value]
-                        })}>
-                            {
-                                temperaments.map(temp => <option >{temp.nombre}</option>)
-                            }
-                        </select>
-                    </div>
-                    <div id={s.Submit}>
-                        <button type="submit">Crear</button>
-                    </div>
-                </form>
+                    }
+                    
+                    {
+                        !error.nombre && !error.alturaMax && !error.alturaMin && !error.pesoMin && !error.pesoMax && !error.edadMax && !error.edadMin && 
+                        <div className={s.Temperamentos}>
+                            <label>Temperamentos:</label>
+                            <select onChange={(e) => setInput({
+                                ...input,
+                                temperamento: [...input.temperamento, e.target.value]
+                            })}>
+                                {
+                                    temperaments.map(temp => <option >{temp.nombre}</option>)
+                                }
+                            </select>
+                            <label>Color:</label>
+                            <input onChange={handleOnChange} name="colorFondo" type="color" />
+                            <hr/>
+                        </div>
+                    }
 
-                {/* Tarjeta de vista previa */}
-                {/* <div className={s.CardPreview}>
-                    <CardDog 
-                        nombre={input.nombre}
-                        alturaMax={input.alturaMax}
-                        alturaMin={input.alturaMin}
-                        pesoMax={input.pesoMax}
-                        pesoMin={input.pesoMin}
-                        edadMax={input.edadMax}
-                        edadMin={input.edadMin}
-                        imagen={input.imagen}
-                        temperamento={input.temperamento.join(",")} 
-                    />
-                </div> */}
+                    {
+                        !error.nombre && !error.alturaMax && !error.alturaMin && !error.pesoMin && !error.pesoMax && !error.edadMax && !error.edadMin && 
+                        <div className={s.Boton__Enviar}>
+                            {
+                                !error ? 
+                                <button disabled type="submit">Completa todo</button> :
+                                <button type="submit">Crear</button>
+                            }
+                        </div>
+                    }
+                </form>
+            </div> {/* Fin del formulario */}
+
+
+            {/* Tarjeta de vista previa */}
+            <div className={s.Card__Formulario}>
+                <CardFormulario {...input}/>
             </div>
         </div>
     )

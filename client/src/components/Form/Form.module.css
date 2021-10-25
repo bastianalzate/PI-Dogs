@@ -1,139 +1,260 @@
 .Form{
     display: flex;
     flex-direction: row;
-    /* justify-content: end; */
-    align-items: flex-start;
     height: 90%;
     width: 80%;
     margin: auto;
-    border: 1px solid black;
+    border: 1px solid blue;
 }
-
-/* ---------------------------------------------- */
-
-.CardPreview{
-    text-align: center;
-    margin-right: 30px;
-    margin-top: 20px;
-}
-
-
 
 
 
 /* --------------------------------------------------- */
 .Form__Formulario{
-    display: flex;
-    flex-direction: column;
     margin-top: 30px;
     width: 50%;
     height: 85%;
-    border-radius: 10px;
-    background-image: url("../../assets/otherImg/fondo8.jpg");
+    border-radius: 5px;
+    /* background-image: url("../../assets/otherImg/fondo8.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     box-shadow: 3px 4px 5px 2px rgba(45, 14, 47, 0.582);
     border: 1px solid black;
-
 }
 
 .Form__Formulario form{
-    display: flex;
-    flex-direction: column;
     height: 80%;
     width: 90%;
     margin: auto;
     color: white;
     font-size: 14px;
-}
-
-
-.Form__Formulario form div{
-    padding: 5px;
-    width: 97%;
-    margin-bottom: 10px;
-    border: 1px solid black;
-}
-
-
-.Form__Formulario form div input{
-    outline: none;
-    border-radius: 3px;
-    border: none;
-    border-bottom: 1px solid black;
-    box-shadow: 1px 1px 2px 1px black;
-}
-
-.Form__Formulario form div input[type="text"]{
-    width: 60%;
-    padding: 5px 10px 5px 10px;
-}
-
-.Form__Formulario form div input[type="number"]{
-    width: 80%;
-    margin: 0px 5px 0px 5px;
-    padding: 5px 10px 5px 10px;
-}   
-
-.Form__Formulario form div select{
-    margin-top: 10px;
-    padding: 5px 10px 5px 10px;
-    outline: none;
-}
-
-.Form__Formulario form #Peso div, .Form__Formulario form #Altura div{
-    display: flex;
-    justify-content: center;
-}
-
-.Form__Formulario form #Submit button{
-    font-size: 18px;
-    padding: 5px 10px 5px 10px;
-    border: 1px solid rgb(43, 211, 226);
-    background-color: rgb(43, 211, 226);
-    border-radius: 5px;
-    color: white;
-}
-
-/* ------------------------------------------------ */
-
-
-#Peso{
-    display: flex;
-}
-
-
-
-#Altura{    
-    display: flex;
-    justify-content: space-around;
-}
-
-#Select{
-    text-align: center;
-}
-
-#Submit{
-    text-align: center;
+    color: black;
+    margin-top: 14px;
 }
 
 #Titulo{
+    text-align: center;
+}
+
+/* ------------------------------------------ */
+/* Inputs */
+.Form .Form__Formulario input{
+    border: 1px solid purple;
+    outline: none;
+}
+
+/* Raza */
+.Raza{
+
+}
+
+.Raza .Titulo__Raza{
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.Raza .Container__Raza{
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0px;
-    height: 50px;
-    color: white;
-    margin-bottom: 10px;
-}  
+}
 
-#Edad{
+.Raza .Container__Raza label{
+    margin-right: 10px;
+}
+
+.Raza .Container__Raza input{
+    padding: 3px 10px 3px 10px;
+    width: 75%;
+}
+
+.Raza .Container__Raza span{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+.Raza .Container__Raza img{
+    height: 22px;
+}
+
+/* Altura */
+
+.Altura{
+    /* border: 1px solid black; */
+    width: 100%;
+}
+.Altura .Titulo__Altura{
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.Altura .Container__Alturas{
     display: flex;
 }
 
-#Edad input{
-    width: 80%;
+.Altura .Container__Alturas label{
+    margin-right: 10px;
+}
+
+.Altura .Container__Alturas input{
+    padding: 3px 10px 3px 10px;
+    border: 1px solid purple;
+    margin-right: 10px;
+}
+
+.Altura .Container__Alturas .AlturaMax{
+    width: 50%;
+}
+
+.Altura .Container__Alturas .AlturaMin{
+    width: 50%;
+}
+
+.Altura .Container__Alturas span{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+.Altura .Container__Alturas img{
+    height: 22px;
+}
+
+/* Peso */
+
+.Peso{
+    /* border: 1px solid black; */
+
+}
+
+.Peso .Titulo__Peso{
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.Peso .Container__Peso{
+    display: flex;
+}
+
+.Peso .Container__Peso label{
+    margin-right: 10px;
 }
 
 
+.Peso .Container__Peso input{
+    padding: 3px 10px 3px 10px;
+    border: 1px solid purple;
+    margin-right: 10px;
+}
+
+.Peso .Container__Peso .PesoMin{
+    width: 50%;
+}
+
+.Peso .Container__Peso .PesoMax{
+    width: 50%;
+}
+
+
+/* Edad */
+
+.Edad{
+    /* border: 1px solid black; */
+}
+
+.Edad .Titulo__Edad{
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.Edad .Container__Edad{
+    display: flex;
+}
+
+.Edad .Container__Edad label{
+    margin-right: 10px;
+}
+
+.Edad .Container__Edad input{
+    padding: 3px 10px 3px 10px;
+    border: 1px solid purple;
+}
+
+.Edad .Container__Edad .EdadMin{
+    width: 50%;
+}
+
+.Edad .Container__Edad .EdadMax{
+    width: 50%;
+}
+
+
+/* Imagen */
+.Imagen{
+
+}
+
+.Imagen .Titulo__Imagen{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.Imagen .Container__Imagen{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Imagen input{
+    /* border: 1px solid black; */
+    padding: 3px 10px 3px 10px;
+    width: 90%;
+}
+
+
+
+/* Temperamentos */
+.Temperamentos{
+    
+}
+
+.Temperamentos label{
+    margin-right: 10px;
+}
+
+.Temperamentos option, select{
+    padding: 3px 10px 3px 10px;
+    border: 1px solid purple;
+    margin-right: 30px;
+}
+
+/* Boton Enviar */
+.Boton__Enviar{
+    text-align: center;
+    margin-top: 15px;
+    
+}
+
+
+.Container__Error{
+    width: 90%;
+}
+
+.Container__Error span{
+    color: red;
+    font-size: 14px;
+}
+
+
+/* Card */
+.Form .Card__Formulario{
+    background-color: purple;
+    width: 50%;
+    padding-top: 20px;
+    padding-left: 20px;
+}

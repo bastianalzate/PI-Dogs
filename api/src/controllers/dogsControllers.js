@@ -33,7 +33,8 @@ const getDogsForNameDb = async (nombre) => {
                 imagen: dog.imagen,
                 edadMin: dog.edadMin,
                 edadMax: dog.edadMax,
-                proviene: "DB"
+                proviene: "DB",
+                colorFondo: dog.colorFondo
             }
         })
 
@@ -155,7 +156,8 @@ const getAllDogsDb = async () => {
                 edadMin: dog.edadMin,
                 edadMax: dog.edadMax,
                 proviene: "DB",
-                temperamento: dog.Temperamentos
+                temperamento: dog.Temperamentos,
+                colorFondo: dog.colorFondo
             }
         })
         return listaDogs;

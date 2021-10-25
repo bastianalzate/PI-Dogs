@@ -52,11 +52,11 @@ router.get("/", async (req, res) => {
 // Post a /dogs
 router.post("/", async (req, res) => {
     // Destructuro los datos que me llegan por body
-    const { nombre, alturaMax, alturaMin, pesoMax, pesoMin, edadMax, edadMin, imagen, temperamento } = req.body;
+    const { nombre, alturaMax, alturaMin, pesoMax, pesoMin, edadMax, edadMin, imagen, temperamento, colorFondo } = req.body;
     try{
         // Creo el Dog
         const resultado = await Dog.create({
-            nombre, alturaMax, alturaMin, pesoMax, pesoMin, edadMax, edadMin, imagen,
+            nombre, alturaMax, alturaMin, pesoMax, pesoMin, edadMax, edadMin, imagen, colorFondo
         })
 
         // Agrego los temperamentos que me llegan por body a la tabla intermedia, junto con el resultado que en este caso es la persona que se acabo de agregar a la base de datos

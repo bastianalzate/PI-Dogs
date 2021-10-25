@@ -10,7 +10,8 @@ export const sendData = async (input) => {
         edadMax: input.edadMax,
         edadMin: input.edadMin,
         imagen: input.imagen,
-        temperamento: input.temperamento
+        temperamento: input.temperamento, 
+        colorFondo: input.colorFondo
     })
     
     return respuesta;
@@ -25,6 +26,10 @@ export const validarError = (input) => {
         error.nombre = "Es requerido";
     }
 
+    if(input.nombre.length > 0 && input.nombre.length < 5){
+        error.nombre = "No puede tener menos de 5 caracteres";
+    }
+
     // validar si nombre no tiene numeros
     if(input.nombre.length !== 0){
         if(!/^[a-z A-Z,.'-]+$/.test(input.nombre)) {
@@ -34,23 +39,31 @@ export const validarError = (input) => {
     
     // -------------------------------------------------------
     // Altura
+    if(!input.alturaMax){
+        error.alturaMax = "Es requerido";
+    }
+
+    if(!input.alturaMin){
+        error.alturaMin = "Es requerido"
+    }
+
 
     // validar que las alturas no sean numero 0 o inferiores
-    if(input.alturaMax <= 0){
+    if(parseInt(input.alturaMax) <= 0){
         error.alturaMax = "No puede ser igual o menor a 0";
     }
-    if(input.alturaMin <= 0){
+    if(parseInt(input.alturaMin) <= 0){
         error.alturaMin = "No puede ser igual o menor a 0";
     }
 
     // validar que las alturas nos sean iguales
-    if(input.alturaMax === input.alturaMin){
+    if(parseInt(input.alturaMax) > 0 && parseInt(input.alturaMin) > 0 && parseInt(input.alturaMax) === parseInt(input.alturaMin)){
         error.alturaMax = "Altura maxima no puede ser igual a altura minima";
         error.alturaMin = "Altura minima no puede ser igual a altura maxima";
     }
 
     // validar que altura minima no sea mayor a altura maxima
-    if(input.alturaMin > input.alturaMax){
+    if(parseInt(input.alturaMin) > parseInt(input.alturaMax)){
         error.alturaMin = "Altura minima no puede ser mayor que altura maxima";
         error.alturaMax = "Altura maxima no puede ser menor que altura minima";
     }
@@ -59,46 +72,61 @@ export const validarError = (input) => {
     // ------------------------------------------------------------------
     // Peso
 
+    if(!input.pesoMax){
+        error.pesoMax = "Es requerido";
+    }
+
+    if(!input.pesoMin){
+        error.pesoMin = "Es requerido"
+    }
+
 
     // validar que el peso no sean numero 0 o inferiores
-    if(input.pesoMax <= 0){
+    if(parseInt(input.pesoMax) <= 0){
         error.pesoMax = "No puede ser igual o menor a 0";
     }
-    if(input.pesoMin <= 0){
+    if(parseInt(input.pesoMin) <= 0){
         error.pesoMin = "No puede ser igual o menor a 0";
     }
 
     // validar que el peso no sea igual al otro
-    if(input.pesoMax === input.pesoMin){
+    if(parseInt(input.pesoMax) === parseInt(input.pesoMin)){
         error.pesoMax = "Peso maximo no puede ser igual a peso minimo";
         error.pesoMin = "Peso minimo no puede ser igual a peso maximo";
     }
 
     // validar que peso minimo no sea mayor a peso maximo
-    if(input.pesoMin > input.pesoMax){
+    if(parseInt(input.pesoMin) > parseInt(input.pesoMax)){
         error.pesoMin = "Peso minimo no puede ser mayor que peso maximo";
         error.pesoMax = "Peso maximo no puede ser menor que peso minimo";
     }
 
     // ------------------------------------------------------------
     // Edad
+    if(!input.edadMax){
+        error.edadMax = "Es requerido";
+    }
+
+    if(!input.edadMin){
+        error.edadMin = "Es requerido"
+    }
 
     // validar que la edad no sean numero 0 o inferior
-    if(input.edadMax <= 0){
+    if(parseInt(input.edadMax) <= 0){
         error.edadMax = "No puede ser igual o menor a 0";
     }
-    if(input.edadMin <= 0){
+    if(parseInt(input.edadMin) <= 0){
         error.edadMin = "No puede ser igual o menor a 0";
     }
 
     // validar que las edades no sean iguales
-    if(input.edadMax === input.edadMin){
+    if(parseInt(input.edadMax) === parseInt(input.edadMin)){
         error.edadMax = "Edad maxima no puede ser igual a edad minima";
         error.edadMin = "Edad minima no puede ser igual a edad maxima";
     }
 
     // validar que la edad minima no sea mayor a edad maxima
-    if(input.edadMax < input.edadMin){
+    if(parseInt(input.edadMax) < parseInt(input.edadMin)){
         error.edadMax = "Edad maxima no puede ser menor a edad minima";
         error.edadMin = "Edad minima no puede ser mayor a edad maxima";
     }

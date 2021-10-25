@@ -9,6 +9,29 @@
     margin: auto;
 }
 
+.Home__Container{
+    width: 100%;
+}
+
+/* --------------------------------------- */
+/* Header de home */
+
+.Home__Bienvenida{
+    border: 1px solid blue;
+    display: flex;
+    text-align: justify;
+}
+
+.Home__Bienvenida div{
+    width: 50%;
+    border: 1px solid black;
+}
+
+
+
+
+
+/* --------------------------------------------------- */
 .Home__ContainerCards{
     display: flex;
     flex-direction: row;
@@ -20,20 +43,85 @@
     border: 1px solid black;
 }
 
-.Home__Container{
-    width: 100%;
-    border: 1px solid blue;
+
+
+
+/* ----------------------------------------------------- */
+.Container__Filtrado__Ordenamiento{
+    border: 1px solid red;
+    display: flex;
 }
 
-.Home__Container__Ordenamiento{
+/* ---------------------------------------------- */
+
+
+.Container__Ordenamiento{
     border: 1px solid black;
+    width: 70%;
+}
+
+.Container__Ordenamiento div button, .Container__Filtrado div button{
+    padding: 5px 10px 5px 10px;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    margin: 0px 10px 0px 0px;
+}
+
+.Container__Ordenamiento div button:hover, .Container__Filtrado div button:hover{
+    padding: 5px 10px 5px 10px;
+    color: white;
+    background-color: purple;
+    border: none;
+    border-radius: 3px;
+}
+
+
+/* ---------------------------------------- */
+
+.Container__Filtrado{
+    border: 1px solid black;
+    width: 30%;
+}   
+
+
+
+/* ----------------------------- */
+/* Paginado */
+
+.Paginado{
     width: 100%;
     display: flex;
-    justify-content: space-around;
 }
 
-.Home__Container__Ordenamiento div{
-    width: 33%;
+.Paginado__Prev{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5px;
+}
+
+.Paginado__Next{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 5px;
+}
+
+.Paginado button{
+    padding: 5px 10px 5px 10px;
+    background-color: black;
     border: 1px solid black;
+    border-radius: 3px;
+    color: white;
+    font-size: 18px;
+}
+
+.Paginado button:hover{
+    border: 1px solid black;
+    background-color: white;
+    color: black;
 }
 

@@ -7,6 +7,8 @@ import s from "./Home.module.css";
 
 const Home = () => {
     const [count, setCount] = useState(0);
+    const [filtrar, setFiltrar] = useState(false);
+    const [ordenar, setOrdenar] = useState(false);
     let { dogsFilter, temperaments } = useSelector((state) => state);
     const dispatch = useDispatch();
 
@@ -42,49 +44,101 @@ const Home = () => {
   
 
     // asignacion y llamado a la funcion de paginacion
-    const resultado = paginacion(dogsFilter, setCount)
-    
+    const resultado = paginacion(dogsFilter, count)
+    console.log(resultado)
 
 
     return(
         <div className={s.Home}>
             <div className={s.Home__Container}>
-                <h1>Buscador</h1>
-                <div className={s.Home__Container__Ordenamiento}>
+                <div className={s.Home__Bienvenida}>
                     <div>
-                        <span>Filtrar por:</span>
-                        <br/>
-                        <button name="api" onClick={handleOnClick}>API</button>
-                        <button name="db" onClick={handleOnClick}>DB</button>
-                        <button name="todos" onClick={handleOnClick}>Todos</button>
-                        <select onChange={handleOnChange}>
-                            {
-                                temperaments.map(temp => <option >{temp.nombre}</option>)
-                            }
-                        </select>
+                        <h1>Buscador</h1>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into 
+                        </p>
                     </div>
                     <div>
-                        <span>Ordenar: </span>
-                        <br/>
-                        <button name="des" onClick={handleOnClick}>Des</button>
-                        <button name="asc" onClick={handleOnClick}>Asc</button>
-                        <button name="pesoMin" onClick={handleOnClick}>Peso menor</button>
-                        <button name="pesoMax" onClick={handleOnClick}>Peso mayor</button>
-                        
+                        <h1>imagen</h1>
                     </div>
-                    <div>
-                        
+                </div>
+                
+                <div className={s.Container__Filtrado__Ordenamiento}>
+
+                    <div className={s.Container__Filtrado}>
+                        <div>
+                            <button onClick={() => setFiltrar(!filtrar)}>Filtrar</button>
+                        </div>
+                        {
+                            filtrar &&
+                            <div className={s.Filtrado}>
+                                <span>Filtrar por:</span>
+                                <br/>
+                                <button name="api" onClick={handleOnClick}>API</button>
+                                <button name="db" onClick={handleOnClick}>DB</button>
+                                <button name="todos" onClick={handleOnClick}>Todos</button>
+                                <br/>
+                                <span>O por</span>
+                                <br/>
+                                <label>
+                                    Temperamento:
+                                    <br/> 
+                                    <select onChange={handleOnChange}>
+                                        {
+                                            temperaments.map(temp => <option >{temp.nombre}</option>)
+                                        }
+                                    </select>
+                                </label>
+                            </div>
+                        }
                     </div>
+
+
+                    <div className={s.Container__Ordenamiento}>
+                        <div>
+                            <button onClick={() => setOrdenar(!ordenar)}>Ordenar</button>
+                        </div>
+                        {
+                            ordenar &&
+                            <div>
+                                <span>Ordenar por: </span>
+                                <br/>
+                                <div>
+                                    <label>Nombre:
+                                        <br/>
+                                        <button name="asc" onClick={handleOnClick}>A - Z</button>
+                                        <button name="des" onClick={handleOnClick}>Z - A</button>
+                                    </label>
+                                </div>
+                                <div>
+                                    <span>O por</span>
+                                </div>
+                                <div>
+                                    <label>Peso:
+                                        <br/>
+                                        <button name="pesoMin" onClick={handleOnClick}>Menor</button>
+                                        <button name="pesoMax" onClick={handleOnClick}>Mayor</button>
+                                    </label>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
                 </div>
             </div>
 
+            
 
-            <div>
-                {count > 0 && <button onClick={decrementar}>Prev</button>}
-                {count >= 0 && count < resultado.length - 1 && <button onClick={incrementar}>Next</button>}
+
+            <div className={s.Paginado}>
+                <div className={s.Paginado__Prev}>
+                    {count > 0 && <button onClick={decrementar}>{"<"}</button>}
+                </div>
+                <div className={s.Paginado__Next}>
+                    {count >= 0 && count < resultado.length - 1 && <button onClick={incrementar}>{">"}</button>}
+                </div>
             </div>
+
             <div className={s.Home__ContainerCards}>
-                {/* <CardNew /> */}
                 {
                     dogsFilter ? 
                     resultado[count]?.map((dog) => {
@@ -94,10 +148,16 @@ const Home = () => {
                     <h1>No existe lo buscado</h1>
                 }
             </div>
-            <div>
-                {count > 0 && <button onClick={() => dispatch(decrementar())}>Prev</button>}
-                {count >= 0 && count < resultado.length - 1 && <button onClick={() => dispatch(incrementar())}>Next</button>}
+
+            <div className={s.Paginado}>
+                <div className={s.Paginado__Prev}>
+                    {count > 0 && <button onClick={decrementar}>{"<"}</button>}
+                </div>
+                <div className={s.Paginado__Next}>
+                    {count >= 0 && count < resultado.length - 1 && <button onClick={incrementar}>{">"}</button>}
+                </div>
             </div>
+
         </div>
     )
 }
