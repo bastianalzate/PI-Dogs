@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import CardDog from "../CardDog/CardDog";
+import CardFavoritos from "../CardFavoritos/CardFavoritos";
 import s from "./Favorites.module.css"
 
 const Favorites = () => {
@@ -9,7 +9,7 @@ const Favorites = () => {
     return(
         <div className={s.Favorites}>
             {
-                favoritesDogs?.map(favorite => <CardDog {...favorite}/>)
+                favoritesDogs?.map(favorite => <CardFavoritos {...favorite}/>)
             }
         </div>
     )

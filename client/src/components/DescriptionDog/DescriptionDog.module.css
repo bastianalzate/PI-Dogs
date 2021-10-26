@@ -1,0 +1,103 @@
+.Container{
+    border: 1px solid black;
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    background-image: url("../../assets/img/walpaper04.jpg");
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.DescriptionDog{
+    height: 90vh;
+    width: 90%;
+    margin: auto;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.308);
+    display: flex;
+    flex-direction: column;
+}
+
+.DescriptionDog .Home{
+    text-align: center;
+}
+
+.DescriptionDog .Home button{
+    padding: 5px 10px 5px 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: rgb(177, 0, 177);
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.DescriptionDog .Home button:hover{
+    
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+.DescriptionDog .Container__Description{
+    display: flex;
+    height: 100%;
+}
+
+.DescriptionDog .Container__Description .Imagen{
+    height: 95%;
+    width: 28%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid white;
+    backdrop-filter: blur(2px);
+    margin-right: 10px;
+}
+
+
+.DescriptionDog .Container__Description .Imagen img{
+    height: 300px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.DescriptionDog .Container__Description .Nombre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    padding-bottom: 70px;
+    width: 45%;
+    text-align: center;
+    margin-left: -10px;
+    padding-left: 15px;
+}
+
+.DescriptionDog .Container__Description .Nombre h2{
+    font-size: 56px;
+    color: white;
+}
+
+.DescriptionDog .Container__Description .Temperamento{
+    border-bottom: 1px solid white;
+    display: flex;
+    margin-top: -30px;
+    color: white;
+}
+
+.DescriptionDog .Container__Description .Temperamento div{
+    margin: 0px 10px 0px 10px;
+}
+
+
+.DescriptionDog .Container__Description .Otros{
+    background-color: rgba(0, 0, 0, 0.678);
+    width: 20%;
+    height: 95%;
+    text-align: center;
+    margin-left: 30px;
+    color: white;
+}

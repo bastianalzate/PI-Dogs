@@ -7,6 +7,7 @@ import { getAllDogs } from "../../actions/actions";
 import Validate from "../../assets/other/check.png"
 import CardFormulario from "../CardFormulario/CardFormulario";
 import ListaTemperamentos from "../ListaTemperamentos/ListaTemperamentos";
+import { NavLink } from "react-router-dom";
 
 const Form = () => {
     const [editarLista, setEditarLista] = useState(false);
@@ -104,10 +105,6 @@ const Form = () => {
             {/*Inicio del formulario*/}  
             <div className={s.Form__Formulario}>
                 <form onSubmit={handleOnSubmit}>
-                    {/* <div id={s.Titulo}>
-                        <h2>Crear Dog</h2>
-                    </div>
-                    <hr/> */}
                     <div className={s.Raza}>
                         <div className={s.Titulo__Raza}>
                             <span>Raza</span>
@@ -235,7 +232,13 @@ const Form = () => {
                 </div>
                 <div className={s.Lista__Temperamentos}>
                     {
-                        editarLista && input.temperamento?.map(tempe => <ListaTemperamentos temperamento={tempe} eliminarTemperamento={eliminarTemperamento}/>)
+                        editarLista ? input.temperamento?.map(tempe => <ListaTemperamentos temperamento={tempe} eliminarTemperamento={eliminarTemperamento}/>)
+                        :<div className={s.Regresar__Home}>
+                            <span>Regresar a Home</span>
+                            <NavLink to="/home">
+                                <button>Home</button>
+                            </NavLink>
+                        </div>
                     }
                 </div>
             </div>

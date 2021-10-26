@@ -1,6 +1,7 @@
 import { Route, Switch } from 'react-router';
 import DescriptionDog from '../DescriptionDog/DescriptionDog';
 import Favorites from '../Favorites/Favorites';
+import Footer from '../Footer/Footer';
 import Form from '../Form/Form';
 import Home from '../Home/Home';
 import InitialPage from '../InitialPage/InitialPage';
@@ -16,17 +17,14 @@ function App() {
           <div className={s.App__Favorite}>
             <Navbar />
             <Favorites />
+            <Footer />
           </div>
         </Route>
-        {/* <Route path={`/movie/:id`}>
-          {({match}) => <Movie match={match}/>}
-        </Route> */}
         <Route exact path={`/dog-description/:id`}>
-          {({match}) => <DescriptionDog match={match}/>}
+            {({match}) => <div className={s.App__Description}><DescriptionDog match={match}/></div>}
         </Route>
         <Route exact path="/crear-dog">
           <div className={s.App__Formulario}>
-            <Navbar />
             <Form />
           </div>
         </Route>
@@ -34,6 +32,7 @@ function App() {
           <div className={s.App__Home}>
             <Navbar />
             <Home />
+            <Footer />
           </div>
         </Route>
         <Route exact path="/">

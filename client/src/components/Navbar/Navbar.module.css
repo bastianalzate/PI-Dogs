@@ -8,7 +8,8 @@
     height: 60px;
 }
 /* -------------------------------------- */
-.Navbar__Lista{}
+.Navbar__Lista{
+}
 
 .Navbar__Lista ul{}
 
@@ -24,7 +25,8 @@
 
 /* --------------------------------------------------- */
 
-.Navbar__Logo{}
+.Navbar__Logo{
+}
 
 .Navbar__Logo img {
     height: 50px;
@@ -36,6 +38,11 @@
 
 
 /* ------------------------------------------ */
+.Navbar__Buscador{
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+}
 
 .Navbar__Buscador input{
     padding: 5px 15px 5px 15px;

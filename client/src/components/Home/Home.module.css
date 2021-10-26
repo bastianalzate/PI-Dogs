@@ -3,7 +3,6 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid green;
     height: auto;
     width: 80%;
     margin: auto;
@@ -17,17 +16,99 @@
 /* Header de home */
 
 .Home__Bienvenida{
-    border: 1px solid blue;
     display: flex;
     text-align: justify;
+    background-image: url("../../assets/img/walpaper10.jpg");
+    background-size: cover;
+    height: 350px;
 }
 
 .Home__Bienvenida div{
     width: 50%;
-    border: 1px solid black;
+}
+
+.Home__Bienvenida .Encabezado{
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.Home__Bienvenida .Encabezado div{
+    height: 50%;
+    width: 100%;
+}
+
+.Home__Bienvenida .Encabezado div h1{
+    font-size: 48px;
+    margin-top: 40px;
+}
+
+.Home__Bienvenida .Encabezado div p{
+    margin-top: -15px;
+    font-size: 14px
 }
 
 
+
+.Home__Bienvenida .Encabezado div button{
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(155, 126, 155);
+    border: 1px solid rgb(155, 126, 155);
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+}
+
+.Home__Bienvenida .Encabezado div button:hover{
+    background-color: rgb(192, 1, 192);
+    border: 1px solid rgb(192, 1, 192);
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+}
+
+
+/* Redes sociales */
+.Home__Bienvenida .Container__Imagenes{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-bottom: 5px;
+    
+}
+
+.Home__Bienvenida .Container__Imagenes .Titulo__Imagenes{
+    text-align: center;
+    color: white;
+    padding: 5px 0px 5px 0px;
+}
+
+.Home__Bienvenida .Container__Imagenes .Imagenes{
+    height: 20%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.Home__Bienvenida .Container__Imagenes .Imagenes img{
+    height: 32px;
+    width: 32px;
+    background-color: white;
+    border: 1px solid white;
+    margin: 5px 7px 5px 7px;
+    border-radius: 5px;
+}
+
+.Home__Bienvenida .Container__Imagenes .Imagenes img:hover{
+    height: 32px;
+    width: 32px;
+    background-color: rgb(192, 1, 192);
+    border: 1px solid rgb(192, 1, 192);
+    margin: 5px 7px 5px 7px;
+    border-radius: 5px;
+}
 
 
 
@@ -37,53 +118,65 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    height:90%;
+    height: 90%;
     width: 100%;
-    padding: 20px 0px 20px 0px;
-    border: 1px solid black;
+    padding: 0px 0px 20px 0px;
 }
 
 
-
+.NoExiste{
+    height: 400px;
+}
 
 /* ----------------------------------------------------- */
-.Container__Filtrado__Ordenamiento{
-    border: 1px solid red;
+.Container__Filtrado{
     display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+}
+
+.Container__Filtrado .Titulo__Paginas{
+    padding-left: 20px;
+}
+
+.Container__Filtrado .Titulo__Paginas h3{
+    font-size: 32px;
+}
+
+.Container__Filtrado .Container__Filtrado2{
+    display: flex;
+    padding-right: 20px;
 }
 
 /* ---------------------------------------------- */
 
 
-.Container__Ordenamiento{
-    border: 1px solid black;
-    width: 70%;
-}
+
+
 
 .Container__Ordenamiento div button, .Container__Filtrado div button{
     padding: 5px 10px 5px 10px;
+    background-color: rgb(70, 7, 70);
+    border: 1px solid rgb(155, 126, 155);
+    border-radius: 5px;
     color: white;
-    background-color: black;
-    border: none;
-    border-radius: 3px;
     font-size: 16px;
-    margin: 0px 10px 0px 0px;
 }
 
 .Container__Ordenamiento div button:hover, .Container__Filtrado div button:hover{
-    padding: 5px 10px 5px 10px;
+    background-color: rgb(192, 1, 192);
+    border: 1px solid rgb(192, 1, 192);
+    border-radius: 5px;
     color: white;
-    background-color: purple;
-    border: none;
-    border-radius: 3px;
+    font-size: 16px;
 }
 
 
 /* ---------------------------------------- */
 
 .Container__Filtrado{
-    border: 1px solid black;
-    width: 30%;
+    
 }   
 
 
@@ -125,3 +218,293 @@
     color: black;
 }
 
+/* --------------------------------------- */
+
+.Filtrar__Ventana{
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.61);
+    display: flex;
+    justify-content: center;
+}
+
+.Filtrar__Ventana .Ventana{
+    height: 50%;
+    width: 50%;
+    background-image: url("../../assets/img/walpaper07.jpg");
+    background-size: cover;
+    background-position: center;
+    margin-top: 10%;
+    border-radius: 5px;
+}
+
+.Filtrar__Ventana .Ventana .Boton{
+    height: auto;
+    display: flex;
+    justify-content: end;
+    padding-right: 5px;
+    padding-top: 5px;
+    backdrop-filter: blur(5px);
+}
+
+
+
+.Filtrar__Ventana .Ventana .Boton button{
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(70, 7, 70);
+    border: 1px solid rgb(155, 126, 155);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+.Filtrar__Ventana .Ventana .Boton button:hover{
+    background-color: rgb(192, 1, 192);
+    border: 1px solid rgb(192, 1, 192);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+
+/* ------------------------------------------------- */
+/* Filtrado y ordenamiento */
+
+.Container__Filtrado__Ordenamiento{
+    display: flex;
+    margin-top: 10px;
+    backdrop-filter: blur(5px);
+}
+
+/* Filtrado */
+.Container__Filtrado__Ordenamiento .Filtrado{
+    width: 50%;
+    color: white;
+    padding: 10px 0px 10px 0px;
+    border-right: 1px solid white;
+}
+
+.Container__Filtrado__Ordenamiento .Filtrado .Titulo__Filtrado{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.Container__Filtrado__Ordenamiento .Filtrado .Opciones__Filtrado{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px 10px 0px;
+}
+
+
+
+
+
+.Container__Filtrado__Ordenamiento .Filtrado .Opciones__Filtrado button{
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(155, 126, 155);
+    border: 1px solid rgb(155, 126, 155);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    margin: 0px 10px 0px 10px;
+}
+
+.Container__Filtrado__Ordenamiento .Filtrado .Opciones__Filtrado button:hover{
+    background-color: rgb(192, 1, 192);
+    border: 1px solid rgb(192, 1, 192);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+.Container__Filtrado__Ordenamiento .Filtrado .Titulo__Filtrado__Segundario{
+    font-size: 18px;
+    text-align: center;
+}
+
+.Container__Filtrado__Ordenamiento .Filtrado .Temperamentos{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.Container__Filtrado__Ordenamiento .Filtrado .Temperamentos select{
+    padding: 5px 10px 5px 10px;
+}
+
+.Container__Filtrado__Ordenamiento .Filtrado .Temperamentos option{
+    padding: 5px 10px 5px 10px;
+}
+
+/* Ordenamiento */
+.Container__Filtrado__Ordenamiento .Ordenamiento{
+    width: 50%;
+    color: white;
+    padding: 10px 0px 10px 0px;
+}
+
+.Container__Filtrado__Ordenamiento .Ordenamiento .Titulo__Ordenamiento{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.Container__Filtrado__Ordenamiento .Ordenamiento .Opciones__Ordenamiento{
+    text-align: center;
+    padding: 10px 0px 10px 0px
+}
+
+
+
+
+
+.Container__Filtrado__Ordenamiento .Ordenamiento .Opciones__Ordenamiento button{
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(155, 126, 155);
+    border: 1px solid rgb(155, 126, 155);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    margin: 0px 10px 0px 10px;
+}
+
+.Container__Filtrado__Ordenamiento .Ordenamiento .Opciones__Ordenamiento button:hover{
+    background-color: rgb(192, 1, 192);
+    border: 1px solid rgb(192, 1, 192);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+.Container__Filtrado__Ordenamiento .Ordenamiento .Titulo__Ordenamiento__Segundario{
+    font-size: 18px;
+    text-align: center;
+}
+
+
+
+
+
+
+/* Buscador */
+.Buscador{
+    margin-top: 10px;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    backdrop-filter: blur(5px);
+}
+
+.Buscador input{
+    padding: 5px 10px 5px 10px;
+}
+
+
+/* Vista Previa */
+
+.Ventana__VistaPrevia{
+    height: 80%;
+    width: 25%;
+    background-image: url("../../assets/img/walpaper11.jpg");
+    background-position: center;
+    background-size: cover;
+    margin-top: 5%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.473);
+    background-blend-mode: multiply;
+    
+}
+
+.Ventana__VistaPrevia .Boton{
+    height: auto;
+    display: flex;
+    justify-content: end;
+    padding-right: 5px;
+    padding-top: 5px;
+    background-color: rgb(0, 0, 0);
+}
+
+
+
+.Ventana__VistaPrevia .Boton button{
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(70, 7, 70);
+    border: 1px solid rgb(155, 126, 155);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+.Ventana__VistaPrevia .Boton button:hover{
+    background-color: rgb(192, 1, 192);
+    border: 1px solid rgb(192, 1, 192);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+.Ventana__VistaPrevia .Imagen__VistaPrevia{
+    height: 40%;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    padding: 10px 0px 10px 0px;
+}
+
+.Ventana__VistaPrevia .Imagen__VistaPrevia img{
+    height: 90%;
+    width: 100%;
+}
+
+.Ventana__VistaPrevia .Nombre__VistaPrevia{
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(10px);
+    margin-top: 5px;
+    border-bottom: 1px solid white;
+    margin-bottom: 5px;
+}
+
+.Ventana__VistaPrevia .Nombre__VistaPrevia span{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.Ventana__VistaPrevia .Temperamentos__VistaPrevia{
+    display: flex;
+    flex-wrap: wrap;
+    backdrop-filter: blur(3px);
+}
+
+.Ventana__VistaPrevia .Temperamentos__VistaPrevia div{
+    padding: 3px 10px 3px 10px;
+    margin: 5px 7px 5px 7px;
+    font-size: 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+    
+}
+
+.Ventana__VistaPrevia .Otros__VistaPrevia{
+    display: flex;
+}
+
+.Ventana__VistaPrevia .Otros__VistaPrevia div{
+    width: 33%;
+    height: 100px;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    backdrop-filter: blur(2px);
+    color: white;
+    padding-top: 10px;
+}
+
+.Ventana__VistaPrevia .Otros__VistaPrevia .Nombre__Otros{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}

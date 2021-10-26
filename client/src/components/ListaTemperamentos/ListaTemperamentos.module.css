@@ -1,9 +1,31 @@
 .Lista__Temperamentos{
     padding: 5px 10px 5px 10px;
-    border: 1px solid white;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 8px;
+    width: 90%;
+    background-color: purple;
+    border: 1px solid purple;
+    font-size: 14px;
 }
+
+.Lista__Temperamentos:hover{
+    background-color: black;
+}
+
+.Lista__Temperamentos button{
+    padding: 3px 10px 3px 10px;
+    background-color: rgb(155, 126, 155);
+    border: 1px solid white;
+    color: white;
+}
+
+.Lista__Temperamentos button:hover{
+    background-color: rgb(192, 1, 192);
+    border: 1px solid white;
+    color: white;
+}
+
+

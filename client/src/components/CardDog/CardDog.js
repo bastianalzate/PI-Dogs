@@ -4,8 +4,9 @@ import s from "./CardDog.module.css"
 import { useDispatch } from "react-redux";
 import { getDescription, addFavorites } from "../../actions/actions";
 
-const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, proviene, colorFondo}) => {
-    const[colorFavorito, setColorFavorito] = useState(false);
+const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, proviene, colorFondo, verVistaPrevia}) => {
+    const [mouseHover, setMouseHover] = useState(false);
+    const [colorFavorito, setColorFavorito] = useState(false);
     const temperamentoTemp = !temperamento ? ["N/A"] : temperamento.split(",") // Valido si no vienen datos aplico un N/A, de lo contrario spliteo el string que me llega
     const dispatch = useDispatch()
 
@@ -17,9 +18,13 @@ const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, proviene,
         setColorFavorito(!colorFavorito)
     }
 
+    const handleOnMouse = () => {
+        setMouseHover(!mouseHover)
+    }
+
     return(
         //Card container
-        <div className={s.CardDog} style={colorFondo ? {backgroundColor: colorFondo, color: "white"} : {backgroundColor: "black", color: "white"}}>
+        <div onMouseEnter={handleOnMouse} onMouseLeave={handleOnMouse} className={s.CardDog} style={colorFondo ? {backgroundColor: colorFondo, color: "white"} : {backgroundColor: "black", color: "white"}}>
 
             <div className={s.CardContainerTemperamento}>
                 <div className={s.CardTemperamento}>
@@ -30,7 +35,7 @@ const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, proviene,
                     })}
                 </div>
                 <div>
-                    <button onClick={handleOnClick}>Fav</button>
+                    <button onClick={() => verVistaPrevia(id)}>View</button>
                 </div>
             </div>
 
@@ -44,6 +49,9 @@ const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, proviene,
             <div className={s.CardText}>
                 <div className={s.CardTextName}>
                     <h2>{nombre}</h2>
+                    {
+                        mouseHover && <button onClick={handleOnClick}>Fav</button>
+                    }
                 </div>
                 <div className={s.CardTextPeso}>
                     <h2>Peso</h2>

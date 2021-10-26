@@ -12,6 +12,11 @@ const Navbar = () => {
                     <img src={Logo}/>
                 </NavLink>
             </div>
+
+            <div className={s.Navbar__Buscador}>
+                <SearchBar /> 
+            </div>
+
             <div className={s.Navbar__Lista}>
                 <ul>
                     <NavLink to="/home" activeClassName={s.Active}>
@@ -30,9 +35,6 @@ const Navbar = () => {
                         </li>
                     </NavLink>
                 </ul>
-            </div>
-            <div className={s.Navbar__Buscador}>
-                <SearchBar /> 
             </div>
         </div>
     )

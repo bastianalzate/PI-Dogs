@@ -71,15 +71,15 @@ const rootReducer = (state = initialState, action) => {
 
         // Ordenamiento
         case ORDER_ASC:
-            arrayAux = state.dogsFilter.sort((a, b) => {
+            arrayAux = state.allDogs.sort((a, b) => {
                 if(a.nombre < b.nombre) return -1;
                 if(a.nombre > b.nombre) return 1;
                 return 0;
             })
-            console.log(arrayAux2)
+            arrayAux2 = arrayAux.map(dog => dog)
             return{
                 ...state,
-                dogsFilter: arrayAux
+                dogsFilter: arrayAux2
             }
 
         case ORDER_DES:
@@ -88,9 +88,10 @@ const rootReducer = (state = initialState, action) => {
                 if(a.nombre < b.nombre) return 1;
                 return 0;
             })
+            arrayAux2 = arrayAux.map(dog => dog)
             return{
                 ...state,
-                dogsFilter: arrayAux
+                dogsFilter: arrayAux2
             }
 
 
@@ -101,9 +102,10 @@ const rootReducer = (state = initialState, action) => {
                 if(Number(a.pesoMin) > Number(b.pesoMin)) return 1;
                 return 0;
             })
+            arrayAux2 = arrayAux.map(dog => dog)
             return{
                 ...state,
-                dogsFilter: arrayAux
+                dogsFilter: arrayAux2
             }
 
 
@@ -113,9 +115,10 @@ const rootReducer = (state = initialState, action) => {
                 if(Number(a.pesoMin) < Number(b.pesoMin)) return 1;
                 return 0;
             })
+            arrayAux2 = arrayAux.map(dog => dog)
             return{
                 ...state,
-                dogsFilter: arrayAux
+                dogsFilter: arrayAux2
             }
 
         // ------------------------------------------------------------
