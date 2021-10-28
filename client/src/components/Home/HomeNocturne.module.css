@@ -6,9 +6,10 @@
     height: auto;
     width: 80%;
     margin: auto;
-    padding-bottom: 20px;
-    background-color: white;
+    background-color: rgba(27, 27, 27, 0.795);
 }
+
+
 
 .Home__Container{
     width: 100%;
@@ -65,8 +66,6 @@
     border-radius: 5px;
     color: white;
     font-size: 20px;
-    display: flex;
-    align-items: center;
 }
 
 .Home__Bienvenida .Encabezado div button:hover{
@@ -75,12 +74,6 @@
     border-radius: 5px;
     color: white;
     font-size: 20px;
-}
-
-.Home__Bienvenida .Encabezado div button img{
-    height: 22px;
-    width: 22px;
-    margin-right: 5px;
 }
 
 
@@ -139,7 +132,7 @@
     height: 90%;
     width: 100%;
     padding: 0px 0px 0px 0px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(27, 27, 27, 0.795);
 }
 
 /* La Card no existe */
@@ -151,12 +144,14 @@
 
 
 
+
 /* Ventana Filtrado */
 .Container__Filtrado{
     display: flex;
     justify-content: space-between;
     height: 70px;
     align-items: center;
+    background-color: rgba(19, 19, 19, 0.904);
 }
 
 .Container__Filtrado .Titulo__Paginas{
@@ -165,7 +160,7 @@
 
 .Container__Filtrado .Titulo__Paginas h3{
     font-size: 32px;
-    color: black;
+    color: white;
 }
 
 .Container__Filtrado .Container__Filtrado2{
@@ -181,13 +176,13 @@
     margin: 0px 5px 0px 5px;
 }
 
+
 .Container__Filtrado .Container__Filtrado2 button img{
     margin-top: 2px;
     margin-left: 5px;
     height: 14px;
     width: 14px;
 }
-
 
 /* Botones */
 .Container__Ordenamiento div button, .Container__Filtrado div button{
@@ -212,7 +207,7 @@
 .Paginado{
     width: 100%;
     display: flex;
-    background-color: white;
+    background-color: rgba(20, 20, 20, 0.815);
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -463,7 +458,8 @@
 }
 
 .Ventana__VistaPrevia .Imagen__VistaPrevia img{
-    height: 100%;
+    height: 90%;
+    width: 100%;
 }
 
 .Ventana__VistaPrevia .Nombre__VistaPrevia{

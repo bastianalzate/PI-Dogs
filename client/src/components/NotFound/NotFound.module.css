@@ -1,0 +1,109 @@
+.Container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+}
+
+.Container .NotFound{
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    border-radius: 5px;
+    background-image: url("../../assets/img/walpaper14.png");
+    background-position: bottom;
+    background-size: cover;
+}
+
+.Container .NotFound .Logo__Titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.Container .NotFound .Logo__Titulo img{
+    height: 56px;
+    height: 56px;
+    margin-right: 10px;
+}
+
+.Container .NotFound .Error{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Container .NotFound .Error span{
+    font-size: 88px;
+    font-weight: bold;
+}
+
+.Container .NotFound .Mensaje{
+    display: flex;
+    justify-content: center;
+}
+
+.Container .NotFound .Mensaje div{
+    width: 40%;
+    text-align: center;
+}
+
+.Container .NotFound .Mensaje div span{
+    font-size: 14px;
+}
+
+
+.Container .NotFound .Botones{
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.Container .NotFound .Botones div{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.Container .NotFound .Botones div button{
+    margin: 10px 10px 10px 10px;
+}
+
+.Container .NotFound .Botones div .BotonHome{
+    padding: 7px 15px 7px 15px;
+    
+    border-radius: 5px;
+    font-size: 24px;
+    background-color: white;
+    border: 1px solid rgb(70, 7, 70);
+    color: rgb(70, 7, 70);
+}
+
+.Container .NotFound .Botones div .BotonHome:hover{
+    background-color: rgb(70, 7, 70);
+    border: 1px solid rgb(70, 7, 70);
+    color: white;
+}
+
+
+.Container .NotFound .Botones div .BotonCrearDog{
+    padding: 7px 15px 7px 15px;
+    background-color: rgb(192, 1, 192);
+    border: 1px solid rgb(192, 1, 192);
+    border-radius: 5px;
+    color: white;
+    font-size: 24px;
+}
+
+.Container .NotFound .Botones div .BotonCrearDog:hover{
+    background-color: rgb(70, 7, 70);
+    border: 1px solid rgb(70, 7, 70);
+    color: white
+}

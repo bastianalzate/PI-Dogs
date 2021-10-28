@@ -40,12 +40,18 @@
 }
 
 .CardContainerTemperamento div button{
-    font-size: 14px;
+    font-size: 16px;
     padding: 5px 10px 5px 10px;
-    background-color: rgb(155, 126, 155);
-    border: 1px solid rgb(155, 126, 155);
+    background-color: rgba(70, 7, 70, 0.452);
+    border: 1px solid rgb(70, 7, 70);
     border-radius: 5px;
     color: white;
+    display: flex;
+}
+
+.CardContainerTemperamento div button img{
+    height: 18px;
+    width: 18px;
 }
 
 .CardContainerTemperamento div button:hover{

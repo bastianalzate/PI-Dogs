@@ -312,11 +312,14 @@
 }
 
 .Regresar__Home button{
-    padding: 5px 10px 5px 10px;
+    padding: 3px 10px 3px 10px;
     color: white;
-    background-color: rgb(155, 126, 155);
+    background-color: rgb(70, 7, 70);
     border-radius: 5px;
-    border: 1px solid rgb(155, 126, 155);
+    border: 1px solid rgb(70, 7, 70);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
 }
 
 .Regresar__Home button:hover{
@@ -324,4 +327,34 @@
     border: 1px solid rgb(192, 1, 192);
     border-radius: 5px;
     color: white;
+}
+
+.Regresar__Home button img{
+    height: 16px;
+    width: 16px;
+    margin-left: 5px;
+}
+
+/* Ventana todo Ok */
+
+.Mensaje__Validado{
+    margin-left: 4px;
+    height: 83%;
+    width: 39%;
+    position: fixed;
+    background-image: url("https://static.wixstatic.com/media/9c5ea5_6c3424aa3cf64977a0f69931423e5013~mv2.gif");
+    background-position: center;
+    background-size: cover;
+}
+
+.Mensaje__Validado .DogCreado{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin-top: 80px;
+}
+
+.Mensaje__Validado .DogCreado span{
+    font-size: 34px;
+    font-weight: bold;
 }

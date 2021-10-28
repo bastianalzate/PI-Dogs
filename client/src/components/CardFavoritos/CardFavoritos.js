@@ -1,14 +1,24 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { removeFavorites } from "../../actions/actions";
+import Eliminar from "../../assets/img/eliminar.png";
+import EliminarHover from "../../assets/img/eliminarHover.png";
 import s from "./CardFavoritos.module.css"
 
 
 const CardFavoritos = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, colorFondo }) => {
-    
+    const [mouseEnter, setMouseEnter] = useState(false)
+    const dispatch = useDispatch();
     const temperamentoTemp = !temperamento ? ["N/A"] : temperamento.split(",") // Valido si no vienen datos aplico un N/A, de lo contrario spliteo el string que me llega
-
-
    
+    const handleOnMouseEnter = () => {
+        setMouseEnter(true);
+    }
+
+    const handleOnMouseLeave = () => {
+        setMouseEnter(false);
+    }
 
     return(
         //Card container
@@ -23,7 +33,7 @@ const CardFavoritos = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, col
                     })}
                 </div>
                 <div>
-                    <button>Borrar</button>
+                    <button onClick={() => dispatch(removeFavorites(id))} onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave}>{mouseEnter ? <img src={EliminarHover} width="20px" height="20px" /> : <img src={Eliminar} width="20px" height="20px" />}</button>
                 </div>
             </div>
 

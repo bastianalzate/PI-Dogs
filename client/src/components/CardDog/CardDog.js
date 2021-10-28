@@ -3,8 +3,11 @@ import { NavLink } from "react-router-dom";
 import s from "./CardDog.module.css"
 import { useDispatch } from "react-redux";
 import { getDescription, addFavorites } from "../../actions/actions";
+import Vista from "../../assets/img/ver.png";
+import VistaHover from "../../assets/img/verHover.png";
 
 const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, proviene, colorFondo, verVistaPrevia}) => {
+    const [mouseEnterIconVer, setMouseEnterIconVer] = useState(false)
     const [mouseHover, setMouseHover] = useState(false);
     const [colorFavorito, setColorFavorito] = useState(false);
     const temperamentoTemp = !temperamento ? ["N/A"] : temperamento.split(",") // Valido si no vienen datos aplico un N/A, de lo contrario spliteo el string que me llega
@@ -22,6 +25,14 @@ const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, proviene,
         setMouseHover(!mouseHover)
     }
 
+    const handleOnMouseIconVerEnter = () => {
+        setMouseEnterIconVer(true);
+    }
+
+    const handleOnMouseIconVerLeave = () => {
+        setMouseEnterIconVer(false);
+    }
+
     return(
         //Card container
         <div onMouseEnter={handleOnMouse} onMouseLeave={handleOnMouse} className={s.CardDog} style={colorFondo ? {backgroundColor: colorFondo, color: "white"} : {backgroundColor: "black", color: "white"}}>
@@ -35,7 +46,7 @@ const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, proviene,
                     })}
                 </div>
                 <div>
-                    <button onClick={() => verVistaPrevia(id)}>View</button>
+                    <button onClick={() => verVistaPrevia(id)} onMouseEnter={handleOnMouseIconVerEnter} onMouseLeave={handleOnMouseIconVerLeave}>{mouseEnterIconVer ? <img src={VistaHover}/> : <img src={Vista}/> }</button>
                 </div>
             </div>
 

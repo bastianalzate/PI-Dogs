@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import s from "./CardFormulario.module.css";
+import Editar from "../../assets/img/editar.png"
 import { NavLink } from "react-router-dom";
 
 const CardFormulario = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, colorFondo, mostrarLista}) => {
@@ -16,7 +17,7 @@ const CardFormulario = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, co
                     })}
                 </div>
                 <div>
-                    <button onClick={() => mostrarLista()}>Editar</button>
+                    <button onClick={() => mostrarLista()}><img src={Editar}/></button>
                 </div>
             </div>
 

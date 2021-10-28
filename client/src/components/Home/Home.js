@@ -6,13 +6,17 @@ import CardDog from "../CardDog/CardDog";
 import SearchBar from "../SearchBar/SearchBar";
 import Linkedin from "../../assets/otherImg/linkedin.png";
 import Github from "../../assets/otherImg/github.png";
+import Filtrar from "../../assets/img/filtrar.png";
+import Agregar from "../../assets/img/crearWhite.png";
 import s from "./Home.module.css";
+import n from "./HomeNocturne.module.css";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
     const [count, setCount] = useState(0);
     const [filtrar, setFiltrar] = useState(false);
     const [vistaPrevia, setVistaPrevia] = useState(false);
-    let { dogsFilter, temperaments, allDogs, dogDescription } = useSelector((state) => state);
+    let { dogsFilter, temperaments, allDogs, dogDescription, modeNocturne } = useSelector((state) => state);
     const dispatch = useDispatch();
 
     const handleOnChange = (e) => {
@@ -58,7 +62,7 @@ const Home = () => {
 
 
     return(
-        <div className={s.Home} >
+        <div className={ modeNocturne ? `${n.Home}` : `${s.Home}`} >
 
             {
                 filtrar &&
@@ -165,11 +169,13 @@ const Home = () => {
                 <div className={s.Home__Bienvenida}>
                     <div className={s.Encabezado}>
                         <div>
-                            <h1>PI Dogs soy Henry</h1>
+                            <h1>PI Dogs Soy Henry</h1>
                             <p>
                                 Es un proyecto desarrollado para el Bootcamp de Soy Henry.
                             </p>
-                            <button>Crear Dog</button>
+                            <NavLink to="/crear-dog">
+                                <button><img src={Agregar} width="26px" height="26px" />Crear Dog</button>
+                            </NavLink>
                         </div>
                     </div>
                     <div className={s.Container__Imagenes}>
@@ -183,17 +189,17 @@ const Home = () => {
                     </div>
                 </div>
                 
-                <div className={s.Container__Filtrado}>
-                    <div className={s.Titulo__Paginas}>
+                <div className={modeNocturne ? `${n.Container__Filtrado}` : `${s.Container__Filtrado}`}>
+                    <div className={modeNocturne ? `${n.Titulo__Paginas}` : `${s.Titulo__Paginas}`}>
                         <h3>Dogs</h3>
                     </div>
-                    <div className={s.Container__Filtrado2}>
-                        <button onClick={() => setFiltrar(!filtrar)}>Filtrar</button>
+                    <div className={modeNocturne ? `${n.Container__Filtrado2}` : `${s.Container__Filtrado2}`}>
+                        <button onClick={() => setFiltrar(!filtrar)}>Filtrar<img src={Filtrar}/></button>
                     </div>
                 </div>
             </div>
 
-            <div className={s.Home__ContainerCards}>
+            <div className={modeNocturne ? `${n.Home__ContainerCards}` : `${s.Home__ContainerCards}`}>
                 {
                     dogsFilter && resultado.length > 0 ?
                     resultado[count]?.map((dog) => {
@@ -206,7 +212,7 @@ const Home = () => {
                 }
             </div>
 
-            <div className={s.Paginado}>
+            <div className={modeNocturne ? `${n.Paginado}` : `${s.Paginado}`}>
                 <div className={s.Paginado__Prev}>
                     {count > 0 && <button onClick={decrementar}>{"<"}</button>}
                 </div>

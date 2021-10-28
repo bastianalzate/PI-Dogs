@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import DescriptionDog from '../DescriptionDog/DescriptionDog';
 import Favorites from '../Favorites/Favorites';
@@ -6,15 +7,18 @@ import Form from '../Form/Form';
 import Home from '../Home/Home';
 import InitialPage from '../InitialPage/InitialPage';
 import Navbar from '../Navbar/Navbar';
+import NotFound from '../NotFound/NotFound';
 import s from './App.module.css';
 
 
 function App() {
+  const { modeNocturne } = useSelector(state => state);
+
   return (
     <div>
       <Switch>
         <Route exact path="/favoritos">
-          <div className={s.App__Favorite}>
+          <div className={modeNocturne ? `${s.App__Favorite__Oscuro}` : `${s.App__Favorite__Claro}`}>
             <Navbar />
             <Favorites />
             <Footer />
@@ -24,12 +28,12 @@ function App() {
             {({match}) => <div className={s.App__Description}><DescriptionDog match={match}/></div>}
         </Route>
         <Route exact path="/crear-dog">
-          <div className={s.App__Formulario}>
+          <div className={modeNocturne ? `${s.App__Formulario__Oscuro}` : `${s.App__Formulario__Claro}`}>
             <Form />
           </div>
         </Route>
         <Route exact path="/home">
-          <div className={s.App__Home}>
+          <div className={modeNocturne ? `${s.App__Home__Oscuro}` : `${s.App__Home__Claro}`} >
             <Navbar />
             <Home />
             <Footer />
@@ -37,14 +41,12 @@ function App() {
         </Route>
         <Route exact path="/">
           <div className={s.App__InitialPage}>
-            <Navbar />
             <InitialPage />
           </div>
         </Route>
         <Route path="/">
           <div className={s.App__404}>
-            <Navbar />
-            <h1>404 not found</h1>
+            <NotFound />
           </div>
         </Route>
       </Switch>

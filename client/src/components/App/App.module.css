@@ -10,16 +10,33 @@
   background-position: right;
 }
 
-.App__Home{
-  height: 100vh;
-  
-  
+
+/* Home */
+/* modo claro */
+.App__Home__Claro{
+  height: auto;
+  background-color: white;
+}
+/* modo oscuro */
+.App__Home__Oscuro{
+  height: auto;
+  background-color: black;
 }
 
-.App__Formulario{
+
+/* Formulario */
+.App__Formulario__Claro{
   height: 100vh;
+  background-color: white;
+} 
+
+.App__Formulario__Oscuro{
+  height: 100vh;
+  background-color: black;
 }
 
+
+/* Description */
 .App__Description{
   min-height: 100vh;
   border: 1px solid black;
@@ -27,10 +44,19 @@
   align-items: center;
 }
 
-.App__Favorite{
-  height: 100vh;
+/* Favorites */
+.App__Favorite__Claro{
+  height: auto;
+  background-color: white;
 }
 
+.App__Favorite__Oscuro{
+  height: auto;
+  background-color: black;
+}
+
+
+/* Error 404 */
 .App__404{
   height: 100vh;
 }

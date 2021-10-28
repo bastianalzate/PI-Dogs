@@ -5,12 +5,14 @@ import { sendData, validarError } from "./controllerForm";
 import { useHistory } from "react-router";
 import { getAllDogs } from "../../actions/actions";
 import Validate from "../../assets/other/check.png"
+import Home from "../../assets/img/home.png";
 import CardFormulario from "../CardFormulario/CardFormulario";
 import ListaTemperamentos from "../ListaTemperamentos/ListaTemperamentos";
 import { NavLink } from "react-router-dom";
 
 const Form = () => {
     const [editarLista, setEditarLista] = useState(false);
+    const [mensajeOk, setMensajeOk] = useState(false);
     const history = useHistory();
     const dispatch = useDispatch(); 
     const [input, setInput] = useState({ // Coloque todos los estados en texto para evitar que al usar ClearState quede el placeholder con el valor de 0 y muestre el mensaje
@@ -77,10 +79,12 @@ const Form = () => {
             alert("Faltan campos por llenar")
         }else{
             sendData(input);
-            alert("Dog creado exitosamente!")
-            clearState();
-            dispatch(getAllDogs()) // dispacho a getAllDog para que me aparezcan los cambios en el home
-            history.push("/home")
+            setMensajeOk(true)
+            setTimeout(() => {
+                clearState();
+                dispatch(getAllDogs()) // dispacho a getAllDog para que me aparezcan los cambios en el home
+                history.push("/home")
+            }, 2000)
         }
     }
 
@@ -100,10 +104,19 @@ const Form = () => {
     
     return(
         <div className={s.Form}> 
-            
-
+                        
             {/*Inicio del formulario*/}  
             <div className={s.Form__Formulario}>
+
+                {
+                    mensajeOk &&
+                    <div className={s.Mensaje__Validado}>
+                        <div className={s.DogCreado}>
+                            <span>Dog creado!</span>
+                        </div> 
+                    </div>
+                }
+
                 <form onSubmit={handleOnSubmit}>
                     <div className={s.Raza}>
                         <div className={s.Titulo__Raza}>
@@ -234,9 +247,9 @@ const Form = () => {
                     {
                         editarLista ? input.temperamento?.map(tempe => <ListaTemperamentos temperamento={tempe} eliminarTemperamento={eliminarTemperamento}/>)
                         :<div className={s.Regresar__Home}>
-                            <span>Regresar a Home</span>
+                            <span>Regresar</span>
                             <NavLink to="/home">
-                                <button>Home</button>
+                                <button>Home<img src={Home}/></button>
                             </NavLink>
                         </div>
                     }

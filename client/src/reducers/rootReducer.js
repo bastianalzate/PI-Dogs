@@ -13,6 +13,8 @@ import {
     FILTRAR_TEMPERAMENT,
     // -----------------------------
     ADD_FAVORITES,
+    REMOVE_FAVORITES,
+    MODE_NOCTURNE,
   
 } 
 from "../action-types/index";
@@ -24,6 +26,7 @@ const initialState = {
     dogDescription: {},
     temperaments: [],
     favoritesDogs: [],
+    modeNocturne: false,
 }
 
 
@@ -179,6 +182,22 @@ const rootReducer = (state = initialState, action) => {
                         favoritesDogs: state.favoritesDogs.concat(action.payload)
                     }
                 }
+            }
+
+        // Remove Favorites
+        case REMOVE_FAVORITES:
+            console.log(action.payload)
+            return {
+                ...state,
+                favoritesDogs: state.favoritesDogs.filter(dog => dog.id !== action.payload)
+            }
+
+        
+        // Mode Nocturne
+        case MODE_NOCTURNE:
+            return {
+                ...state,
+                modeNocturne: !state.modeNocturne
             }
 
 

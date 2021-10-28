@@ -13,6 +13,8 @@ import {
     FILTRAR_TEMPERAMENT,
     // ----------------------
     ADD_FAVORITES,
+    REMOVE_FAVORITES,
+    MODE_NOCTURNE,
  
 } from "../action-types/index";
 
@@ -168,5 +170,16 @@ export const addFavorites = (id) => {
     }
 }
 
+export const removeFavorites = (id) => {
+    return {
+        type: REMOVE_FAVORITES,
+        payload: id
+    }
+}
 
 
+export const cambiarModo = () => {
+    return { 
+        type: MODE_NOCTURNE,
+    }
+}

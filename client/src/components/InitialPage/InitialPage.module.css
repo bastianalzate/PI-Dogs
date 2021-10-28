@@ -13,16 +13,21 @@
     display: block;
     width: 40%;
     height: 60%;
-    padding-top: 40px;
+    padding-top: 100px;
 }
 
 .InitialPage__Presentacion h1{
     font-size: 48px;
+    margin-top: 40px;
+    font-weight: bold;
+    margin-top: 80px;
 }
 
 .InitialPage__Presentacion p{
+    margin-top: -25px;
     font-size: 14px;
-    text-align: justify;
+    color: rgb(88, 88, 88);
+    margin-bottom: 15px;
 }
 
 .InitialPage__Presentacion__Botones{
@@ -30,7 +35,7 @@
 }
 
 .InitialPage__Presentacion__Botones button{
-    padding: 5px 20px 5px 20px;
+    padding: 5px 10px 5px 10px;
     font-size: 20px;
 }
 
@@ -41,11 +46,17 @@
 }
 
 #BotonUno{
-    margin-right: 30px;
-    background-color: rgb(43, 211, 226);
-    border: 1px solid rgb(43, 211, 226);
+    margin-right: 20px;
+    background-color: rgb(192, 1, 192);
+    border: 1px solid rgb(192, 1, 192);
+    border-radius: 5px;
     color: white;
-    border-radius: 8px;
+    font-size: 22px;
+}
+
+#BotonUno:hover{
+    background-color: rgb(70, 7, 70);
+    border: 1px solid rgb(70, 7, 70);
 }
 
 #BotonDos{
@@ -53,22 +64,52 @@
     border: 1px solid rgb(182, 160, 182);
     color: rgb(182, 160, 182);
     border-radius: 8px;
+    font-size: 22px;
+}
+
+#BotonDos:hover{
+    background-color: rgb(70, 7, 70);
+    border: 1px solid rgb(182, 160, 182);
+    color: white;
+    border-radius: 8px;
+    font-size: 22px;
 }
 
 
 .BotonNext{
-    font-size: 24px;
-    background-color: rgb(43, 211, 226);
-    border: none;
+    margin-right: 20px;
+    background-color: rgb(192, 1, 192);
+    border: 1px solid rgb(192, 1, 192);
+    border-radius: 5px;
     color: white;
+    font-size: 22px;
+}
+
+.BotonNext:hover{
+    margin-right: 20px;
+    background-color: rgb(70, 7, 70);
+    border: 1px solid rgb(70, 7, 70);
+    border-radius: 5px;
+    color: white;
+    font-size: 22px;
 }
 
 .BotonPrev{
-    font-size: 24px;
-    background-color: rgb(43, 211, 226);
-    border: none;
-    color: white;
     margin-right: 20px;
+    background-color: rgb(192, 1, 192);
+    border: 1px solid rgb(192, 1, 192);
+    border-radius: 5px;
+    color: white;
+    font-size: 22px;
+}
+
+.BotonPrev:hover{
+    margin-right: 20px;
+    background-color: rgb(70, 7, 70);
+    border: 1px solid rgb(70, 7, 70);
+    border-radius: 5px;
+    color: white;
+    font-size: 22px;
 }
 
 /* --------------------------------------------------------------- */

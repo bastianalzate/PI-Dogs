@@ -12,5 +12,6 @@ export const GET_ALL_TEMPERAMENT = "GET_ALL_TEMPERAMENT";
 export const FILTRAR_TEMPERAMENT = "FILTRAR_TEMPERAMENT";
 // ------------------------------------------------
 export const ADD_FAVORITES = "ADD_FAVORITES";
-
+export const REMOVE_FAVORITES = "REMOVE_FAVORITES";
+export const MODE_NOCTURNE = "MODE_NOCTURNE";
 

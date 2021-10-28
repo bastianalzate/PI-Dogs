@@ -30,15 +30,15 @@
     font-size: 16px;
     background-color: rgb(177, 0, 177);
     color: white;
-    border: 1px solid white;
+    border: 1px solid rgb(177, 0, 177);
     border-radius: 5px;
 }
 
 .DescriptionDog .Home button:hover{
     
-    background-color: black;
+    background-color: rgb(70, 7, 70);
     color: white;
-    border: 1px solid white;
+    border: 1px solid rgb(70, 7, 70);
 }
 
 .DescriptionDog .Container__Description{
@@ -52,15 +52,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid white;
     backdrop-filter: blur(2px);
     margin-right: 10px;
 }
 
 
 .DescriptionDog .Container__Description .Imagen img{
-    height: 300px;
-    width: 200px;
+    height: auto;
+    width: 90%;
     border-radius: 5px;
 }
 
@@ -82,14 +81,19 @@
 }
 
 .DescriptionDog .Container__Description .Temperamento{
-    border-bottom: 1px solid white;
     display: flex;
+    flex-wrap: wrap;
     margin-top: -30px;
     color: white;
 }
 
 .DescriptionDog .Container__Description .Temperamento div{
-    margin: 0px 10px 0px 10px;
+    padding: 5px 15px 5px 15px;
+    margin: 5px 7px 5px 7px;
+    font-size: 14px;
+    border-radius: 5px;
+    color: white;
+    background-color: purple;
 }
 
 
