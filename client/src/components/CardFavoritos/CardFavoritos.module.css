@@ -2,65 +2,46 @@
     display: flex;
     flex-direction: column;
     height: 330px;
-    width: 22%;
-    border-radius: 10px;
-    padding: 10px 10px 10px 10px;
-    margin: 2px 2px 2px 2px;
+    width: 24%;
+    border-radius: 5px;
+    padding: 5px 0px 10px 0px;
     background-color: black;
     color: white;
-    
+    margin: 5px;
 }
 
-
-.CardContainerTemperamento{
+/* Botones */
+.CardDog .Botones{
+    height: 10%;
     display: flex;
-    align-items: center;
-    height: 15%;
-    justify-content: space-between;
-}
-
-.CardTemperamento{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 100%;
-    height: auto;
     margin-bottom: 5px;
-    color: rgb(184, 182, 182);
 }
 
-.divTemperamento{
+
+/* Boton Eliminar */
+.CardDog .Botones .Boton__VistaPrevia{
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
-    margin-right: 5px;
-    height: 8px;
-    font-size: 10px;
-    padding: 4px;
-    margin-top: 2px;
 }
 
-
-.CardContainerTemperamento div button{
-    padding: 3px 10px 3px 10px;
+.CardDog .Botones .Boton__VistaPrevia button{
     background-color: rgba(0, 0, 0, 0);
     border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 14px;
 }
 
+.CardDog .Botones .Boton__VistaPrevia img{
+    height: 22px;
+    width: 22px;
+}
 
-
-
-
-/* -------------------------------------------------------- */
-
-.CardContainerImg{
+/* Container Imagen */
+.CardDog .CardContainerImg{
     display: flex;
     align-items: center;
-    height: 60%;
-    
+    height: 50%;
 }
 
 .CardDog .CardContainerImg .NavLinkContainer{
@@ -72,46 +53,64 @@
 }
 
 .CardDog .CardContainerImg .NavLinkContainer img{
-    height: 90%;
+    height: 100%;
     width: 100%;
-    border-radius: 10px;
     color: rgb(212, 212, 212);
 }
 
 
-/* --------------------------------------- */
-
-.CardText{
-    display: flex;
-    color: rgb(184, 182, 182);
+/* Container__Nombre__Temperamentos */
+.Container__Nombre__Temperamentos{
+    height: 26%;
 }
 
-.CardTextName{
-    width: 50%;
+/* Nombre */
+.Container__Nombre__Temperamentos .Nombre{
     text-align: center;
-    color: white;
+    padding-top: 5px;
 }
 
-.CardDog h2{
-    font-size: 14px;
-    text-align: center;
+.Container__Nombre__Temperamentos .Nombre span{
+    font-size: 18px;
+    font-weight: bold;
 }
 
-
-/* ------------------------------------- */
-
-.CardTextPeso{
+/* Temperamentos */
+.Container__Nombre__Temperamentos .Temperamentos{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    width: 50%;
+    padding-top: 5px;
 }
 
+.Container__Nombre__Temperamentos .Temperamentos .divTemperamento{
+    margin: 3px 5px 3px 5px;
+    background-color: rgb(70, 7, 70);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    border-radius: 5px;
+}
 
+.Container__Nombre__Temperamentos .Temperamentos .divTemperamento span{
+    font-size: 10px;
+}
 
-.CardTextPeso span{
-    margin-top: -10px;
-    margin-bottom: 10px;
+/* Texto Peso */
+.CardTextPeso{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.CardTextPeso .TituloPeso{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.CardTextPeso .Text{
     font-size: 12px;
 }

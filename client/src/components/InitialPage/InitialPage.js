@@ -16,7 +16,7 @@ const InitialPage = () => {
                 </p>
                 <div className={s.InitialPage__Presentacion__Botones}>
                     <NavLink to="/home">
-                        <button id={s.BotonUno}><img src={Huella} />Ver</button>
+                        <button id={s.BotonUno}><img src={Huella} />Ingresar</button>
                     </NavLink>
                     <NavLink to="/adoptar">
                         <button id={s.BotonDos}><img src={Adoptar} />Adoptar</button>
