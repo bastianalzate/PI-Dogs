@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import s from "./CardDog.module.css"
-import { useDispatch } from "react-redux";
+import s from "./CardDog.module.css";
+import n from "./CardDogNocturna.module.css";
+import { useDispatch, useSelector } from "react-redux";
 import { getDescription, addFavorites } from "../../actions/actions";
 import Vista from "../../assets/img/ver.png";
 import VistaHover from "../../assets/img/verHover.png";
@@ -12,6 +13,7 @@ const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, proviene,
     const [mouseEnterIconVer, setMouseEnterIconVer] = useState(false)
     const [mouseHover, setMouseHover] = useState(false);
     const [favorito, setFavorito] = useState(false);
+    const { modeNocture } = useSelector(state => state);
     const temperamentoTemp = !temperamento ? ["N/A"] : temperamento.split(",") // Valido si no vienen datos aplico un N/A, de lo contrario spliteo el string que me llega
     const dispatch = useDispatch()
 
@@ -46,7 +48,7 @@ const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, proviene,
 
     return(
         //Card container
-        <div onMouseEnter={handleOnMouse} onMouseLeave={handleOnMouse} className={s.CardDog} style={colorFondo ? {backgroundColor: colorFondo, color: "white"} : {backgroundColor: "black", color: "white"}}>
+        <div key={id} className={modeNocture ? `${n.CardDog}` : `${s.CardDog}`} onMouseEnter={handleOnMouse} onMouseLeave={handleOnMouse} style={colorFondo ? {backgroundColor: colorFondo, color: "white"} : {backgroundColor: "black", color: "white"}}>
 
             <div className={s.Botones}>
                 <div className={s.Boton__Fav}>
@@ -72,7 +74,7 @@ const CardDog = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, proviene,
                 <div className={s.Temperamentos}>
                     {temperamentoTemp?.map((temp, index) => {
                         if(index < 6){
-                            return <div className={s.divTemperamento}><span>{temp}</span></div>
+                            return <div className={s.divTemperamento} key={index}><span>{temp}</span></div>
                         }
                     })}
                 </div>

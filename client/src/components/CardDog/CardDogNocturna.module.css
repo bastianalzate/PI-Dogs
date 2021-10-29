@@ -1,0 +1,39 @@
+.CardDog{
+    display: flex;
+    flex-direction: column;
+    height: 330px;
+    width: 24%;
+    border-radius: 5px;
+    padding: 10px 0px 10px 0px;
+    background-color: black;
+    border: 1px solid rgba(0, 0, 0, 0);
+    color: white;
+    margin: 5px;
+}
+
+.CardDog:hover{
+    animation-name: latido;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    width: 24%;
+    border: 1px solid black;
+    
+}
+
+@keyframes latido{
+    0%{
+        border-top: 1px solid white;
+    }
+    30%{
+        border-left: 1px solid white;
+    }
+    60%{
+        border-bottom: 1px solid white;
+    }
+    90%{
+        border-right: 1px solid white;
+    }
+    
+
+}

@@ -1,6 +1,10 @@
 import axios from "axios";
 
 export const sendData = async (input) => {
+    if(!input.imagen || !input.imagen.includes("http") || input.imagen.length < 6){
+        input.imagen = "https://wallpaperaccess.com/full/3845801.jpg";
+    }
+
     const respuesta = await axios.post("http://localhost:3001/dogs",{
         nombre: input.nombre,
         alturaMax: input.alturaMax,

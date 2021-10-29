@@ -8,6 +8,7 @@
   background-size: auto;
   background-repeat: no-repeat;
   background-position: right;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 
@@ -16,11 +17,13 @@
 .App__Home__Claro{
   height: auto;
   background-color: white;
+  font-family: 'Fira Sans', sans-serif;
 }
 /* modo oscuro */
 .App__Home__Oscuro{
   height: auto;
-  background-color: black;
+  background-color: rgb(24, 24, 24);
+  font-family: 'Fira Sans', sans-serif;
 }
 
 
@@ -28,11 +31,13 @@
 .App__Formulario__Claro{
   height: 100vh;
   background-color: white;
+  font-family: 'Fira Sans', sans-serif;
 } 
 
 .App__Formulario__Oscuro{
   height: 100vh;
-  background-color: black;
+  background-color: rgb(24, 24, 24);
+  font-family: 'Fira Sans', sans-serif;
 }
 
 
@@ -42,21 +47,25 @@
   border: 1px solid black;
   display: flex;
   align-items: center;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 /* Favorites */
 .App__Favorite__Claro{
   height: auto;
   background-color: white;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .App__Favorite__Oscuro{
   height: auto;
-  background-color: black;
+  background-color: rgb(24, 24, 24);
+  font-family: 'Fira Sans', sans-serif;
 }
 
 
 /* Error 404 */
 .App__404{
   height: 100vh;
+  font-family: 'Fira Sans', sans-serif;
 }

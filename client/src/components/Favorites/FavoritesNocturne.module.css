@@ -7,5 +7,40 @@
     width: 80%;
     margin: auto;
     padding-top: 20px;
-    background-color: rgba(27, 27, 27, 0.795);;
+    background-color: rgba(36, 36, 36, 0.5);
+}
+
+
+/* Modo Noche */
+.Favorites .AvisoModoNocturne{
+    justify-content: center;
+}
+
+.Favorites .AvisoModoNocturne h2{
+    margin-top: 100px;
+    color: rgb(236, 236, 236);
+}
+
+
+.Favorites .AvisoModoNocturne div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.Favorites .AvisoModoNocturne div button{
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(70, 7, 70);
+    border: 1px solid rgb(70, 7, 70);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+.Favorites .AvisoModoNocturne div button{
+    background-color: rgb(192, 1, 192);
+    border: 1px solid rgb(192, 1, 192);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
 }

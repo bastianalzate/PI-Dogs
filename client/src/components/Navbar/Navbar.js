@@ -16,7 +16,8 @@ const Navbar = () => {
     const dispatch = useDispatch();
 
     return(
-        <div className={modeNocturne ? `${n.Navbar}`: `${s.Navbar}`} >
+        <div className={modeNocturne ? `${n.NavbarContainer}` : `${s.NavbarContainer}`}>
+            <div className={modeNocturne ? `${n.Navbar}`: `${s.Navbar}`} >
             <div className={s.Navbar__Logo}>
                 <NavLink to="/">
                     <img src={Logo}/>
@@ -53,6 +54,7 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
+        </div>
         </div>
     )
 }

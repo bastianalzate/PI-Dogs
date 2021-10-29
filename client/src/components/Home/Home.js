@@ -202,10 +202,14 @@ const Home = () => {
             <div className={modeNocturne ? `${n.Home__ContainerCards}` : `${s.Home__ContainerCards}`}>
                 {
                     dogsFilter && resultado.length > 0 ?
-                    resultado[count]?.map((dog) => {
-                        return <CardDog {...dog} verVistaPrevia={verVistaPrevia}/>
+                    resultado[count]?.map((dog, index) => {
+                        return <CardDog {...dog} verVistaPrevia={verVistaPrevia} key={index} />
                     })
-                    : 
+                    : modeNocturne ? 
+                    <div className={n.NoExiste}>
+                        <h1>No existe el dog buscado!</h1>
+                    </div>
+                    :
                     <div className={s.NoExiste}>
                         <h1>No existe el dog buscado!</h1>
                     </div>

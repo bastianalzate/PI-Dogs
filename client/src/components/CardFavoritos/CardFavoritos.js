@@ -22,7 +22,7 @@ const CardFavoritos = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, col
     }
 
     return(
-        <div className={s.CardDog} style={colorFondo ? {backgroundColor: colorFondo, color: "white"} : {backgroundColor: "black", color: "white"}}>
+        <div className={s.CardDog} key={id} style={colorFondo ? {backgroundColor: colorFondo, color: "white"} : {backgroundColor: "black", color: "white"}}>
 
             <div className={s.Botones}>
                 <div className={s.Boton__VistaPrevia}>
@@ -43,7 +43,7 @@ const CardFavoritos = ({ id, nombre, pesoMax, pesoMin, temperamento, imagen, col
                 <div className={s.Temperamentos}>
                     {temperamentoTemp?.map((temp, index) => {
                         if(index < 6){
-                            return <div className={s.divTemperamento}><span>{temp}</span></div>
+                            return <div className={s.divTemperamento} key={index}><span>{temp}</span></div>
                         }
                     })}
                 </div>

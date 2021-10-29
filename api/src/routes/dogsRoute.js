@@ -5,13 +5,38 @@ const {
     getDogsForNameDb,
     getDogsForNameApi,
     getAllDogsApi,
-    getAllDogsDb
+    getAllDogsDb,
+    getDogsForIdApi,
+    getDogsForIdDb,
 } = require("../controllers/dogsControllers");
 
 
 
-// Get a /dogs
+router.get("/:id", async (req, res) => {
+
+    // valido si me llega un id por parametro
+    if(req.params.id){ 
+        const { id } = req.params;
+        console.log(id)
+        try{
+            const getDogForIdAp = await getDogsForIdApi(id); 
+            const getDogForId = await getDogsForIdDb(id);
+            
+            if(id < 500) return res.status(200).json(getDogForIdAp);            
+            else return res.status(200).json(getDogForId);
+        }
+        // Si algo sale mal entrar aqui en el catch
+        catch(err){
+            console.log(err)
+            res.send({error: err})
+        }
+     }
+})
+
+
+// Get a /dogs ->  alldogs y dogsForName
 router.get("/", async (req, res) => {
+    
     // valido si me llega un nombre por parametro
     if(req.query.nombre){ 
         const { nombre } = req.query;

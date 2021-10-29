@@ -6,7 +6,7 @@
     height: auto;
     width: 80%;
     margin: auto;
-    background-color: rgba(27, 27, 27, 0.795);
+    background-color: rgb(39, 39, 39);
 }
 
 
@@ -138,8 +138,7 @@
 /* La Card no existe */
 .NoExiste{
     height: 400px;
-    background-image: url("../../assets/img/walpaper15.jpg");
-    background-size: cover;
+    color: rgb(226, 226, 226);
 }
 
 
@@ -151,7 +150,7 @@
     justify-content: space-between;
     height: 70px;
     align-items: center;
-    background-color: rgba(19, 19, 19, 0.904);
+    background-color: rgb(24, 24, 24);
 }
 
 .Container__Filtrado .Titulo__Paginas{
@@ -207,9 +206,9 @@
 .Paginado{
     width: 100%;
     display: flex;
-    background-color: rgba(20, 20, 20, 0.815);
-    margin-top: 5px;
-    margin-bottom: 5px;
+    background-color: rgb(24, 24, 24);
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .Paginado__Prev{

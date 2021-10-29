@@ -1,3 +1,14 @@
+.NavbarContainer{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    background-color: white;
+}
+
+
 .Navbar{
     width: 80%;
     margin: auto;
@@ -7,7 +18,6 @@
     height: 60px;
     background-color: white;
 }
-
 
 
 .Navbar__Logo{
