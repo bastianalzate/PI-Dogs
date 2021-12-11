@@ -1,22 +1,50 @@
 const { Router } = require("express");
 const router = Router();
-const { Dog } = require("../db");
+const { Dog, Temperamento } = require("../db");
 const { 
     getDogsForNameDb,
     getDogsForNameApi,
     getAllDogsApi,
-    getAllDogsDb
+    getAllDogsDb,
+    getDogsForIdApi,
+    getDogsForIdDb,
 } = require("../controllers/dogsControllers");
 
 
-// Get a /dogs
+
+router.get("/:id", async (req, res) => {
+
+    // valido si me llega un id por parametro
+    if(req.params.id){ 
+        const { id } = req.params;
+        console.log(id)
+        try{
+            const getDogForIdAp = await getDogsForIdApi(id); 
+            const getDogForId = await getDogsForIdDb(id);
+            
+            if(id < 500) return res.status(200).json(getDogForIdAp);            
+            else return res.status(200).json(getDogForId);
+        }
+        // Si algo sale mal entrar aqui en el catch
+        catch(err){
+            console.log(err)
+            res.send({error: err})
+        }
+     }
+})
+
+
+// Get a /dogs ->  alldogs y dogsForName
 router.get("/", async (req, res) => {
+    
     // valido si me llega un nombre por parametro
     if(req.query.nombre){ 
         const { nombre } = req.query;
         try{
-            const getDogForNameAp = await getDogsForNameApi(nombre);
+            const getDogForNameAp = await getDogsForNameApi(nombre); 
             const getDogForName = await getDogsForNameDb(nombre);
+
+            // concateno todo en un solo array
             const respuestaConcatenada = getDogForName.concat(getDogForNameAp);
 
             res.status(200).json({data: respuestaConcatenada});
@@ -48,16 +76,30 @@ router.get("/", async (req, res) => {
 
 // Post a /dogs
 router.post("/", async (req, res) => {
-    const { nombre, alturaMax, alturaMin, pesoMax, pesoMin, edadMax, edadMin, imagen } = req.body;
+    // Destructuro los datos que me llegan por body
+    const { nombre, alturaMax, alturaMin, pesoMax, pesoMin, edadMax, edadMin, imagen, temperamento, colorFondo } = req.body;
     try{
+        // Creo el Dog
         const resultado = await Dog.create({
-            nombre, alturaMax, alturaMin, pesoMax, pesoMin, edadMax, edadMin, imagen,
+            nombre, alturaMax, alturaMin, pesoMax, pesoMin, edadMax, edadMin, imagen, colorFondo
         })
+
+        // Agrego los temperamentos que me llegan por body a la tabla intermedia, junto con el resultado que en este caso es la persona que se acabo de agregar a la base de datos
+        for(let i = 0; i < temperamento.length; i++){
+            resultado.addTemperamentos(await Temperamento.findOne({ // busco por nombre de temperamento y el que encuentre lo agrego a la tabla intermedia
+                where: {
+                    nombre: temperamento[i]
+                }
+            }))
+            
+        }
         
-        res.send(resultado);
+      
+        res.send("ok");
     }
     // Si algo sale mal entrar aqui en el catch
     catch(err){
+        console.log(err)
         res.send({error: err});
     }
 })  

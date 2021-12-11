@@ -38,6 +38,10 @@ module.exports = sequelize => {
         imagen: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        colorFondo: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     })
 }

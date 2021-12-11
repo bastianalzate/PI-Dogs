@@ -1,0 +1,120 @@
+.CardDog{
+    display: flex;
+    flex-direction: column;
+    height: 330px;
+    width: 280px;
+    border-radius: 5px;
+    padding: 10px 0px 10px 0px;
+    background-color: black;
+    color: white;
+    margin: 10px 5px 0px 10px;
+}
+
+/* Botones */
+.CardDog .Botones{
+    height: 10%;
+    display: flex;
+    margin-bottom: 10px;
+    padding: 0px 5px 0px 5px;
+    justify-content: end;
+}
+
+/* Boton VistaPrevia */
+.CardDog .Botones .Boton__VistaPrevia{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.CardDog .Botones .Boton__VistaPrevia button{
+    background-color: rgba(155, 5, 155, 0.582);
+    border: none;
+    padding: 3px 10px 3px 10px;
+    border-radius: 5px;
+}
+
+.CardDog .Botones .Boton__VistaPrevia button:hover{
+    background-color: rgb(70, 7, 70);
+    border: none;
+    padding: 3px 10px 3px 10px;
+    border-radius: 5px;
+}
+
+.CardDog .Botones .Boton__VistaPrevia img{
+    height: 20px;
+    width: 20px;
+}
+
+/* Container Imagen */
+.CardDog .CardContainerImg{
+    display: flex;
+    align-items: center;
+    height: 50%;
+    border: 1px solid rgb(70, 70, 70);
+}
+
+
+
+.CardDog .CardContainerImg img{
+    height: 100%;
+    width: 100%;
+    color: rgb(212, 212, 212);
+}
+
+
+/* Container__Nombre__Temperamentos */
+.Container__Nombre__Temperamentos{
+    height: 26%;
+}
+
+/* Nombre */
+.Container__Nombre__Temperamentos .Nombre{
+    text-align: center;
+    padding-top: 5px;
+}
+
+.Container__Nombre__Temperamentos .Nombre span{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Temperamentos */
+.Container__Nombre__Temperamentos .Temperamentos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.Container__Nombre__Temperamentos .Temperamentos .divTemperamento{
+    margin: 3px 5px 3px 5px;
+    background-color: rgb(70, 7, 70);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.Container__Nombre__Temperamentos .Temperamentos .divTemperamento span{
+    font-size: 10px;
+}
+
+/* Texto Peso */
+.CardTextPeso{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.CardTextPeso .TituloPeso{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.CardTextPeso .Text{
+    font-size: 12px;
+}

@@ -1,58 +1,91 @@
 .CardDog{
     display: flex;
     flex-direction: column;
-    height: 300px;
-    width: 220px;
-    border-radius: 10px;
-    padding: 10px 10px 10px 10px;
-    margin: 10px 15px 10px 15px;
+    height: 330px;
+    width: 23%;
+    border-radius: 5px;
+    padding: 10px 0px 10px 0px;
     background-color: rgb(0, 0, 0);
+    border: 1px solid rgba(255, 255, 255, 0);
     color: white;
+    margin: 5px;
 }
 
+.CardDog:hover{
+    animation-name: latido;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    width: 23%;
+    border: 1px solid white;
+    margin: 5px;
+}
 
+@keyframes latido{
+    0%{
+        border-top: 1px solid purple;
+    }
+    33%{
+        border-left: 1px solid purple;
+    }
+    66%{
+        border-bottom: 1px solid purple;
+    }
+    100%{
+        margin-top: -6px;
+        border-right: 1px solid purple;
+    } 
+}
 
-.CardContainerTemperamento{
+/* Botones */
+.CardDog .Botones{
+    height: 10%;
     display: flex;
-    align-items: center;
-    height: 15%;
-    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 0px 5px 0px 5px;
 }
 
-.CardTemperamento{
+/* Boton Favoritos */
+.CardDog .Botones .Boton__Fav{
+    width: 50%;
+    height: 100%;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    margin-bottom: 5px;
+    justify-content: start;
 }
 
-.divTemperamento{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 5px;
-    height: 8px;
-    font-size: 10px;
-    padding: 4px;
-    margin-top: 2px;
+.CardDog .Botones .Boton__Fav button{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
 }
 
-.CardContainerTemperamento div button{
-    font-size: 16px;
+.CardDog .Botones .Boton__Fav button img{
     height: 20px;
+    width: 20px;
 }
 
+/* Boton VistaPrevia */
+.CardDog .Botones .Boton__VistaPrevia{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+}
 
+.CardDog .Botones .Boton__VistaPrevia button{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
 
+.CardDog .Botones .Boton__VistaPrevia img{
+    height: 24px;
+    width: 24px;
+}
 
-/* -------------------------------------------------------- */
-
-.CardContainerImg{
+/* Container Imagen */
+.CardDog .CardContainerImg{
     display: flex;
     align-items: center;
-    height: 60%;
+    height: 50%;
 }
 
 .CardDog .CardContainerImg .NavLinkContainer{
@@ -64,43 +97,67 @@
 }
 
 .CardDog .CardContainerImg .NavLinkContainer img{
-    height: 90%;
+    height: 100%;
     width: 100%;
-    border-radius: 10px;
+    color: rgb(212, 212, 212);
 }
 
 
-/* --------------------------------------- */
-
-.CardText{
-    display: flex;
-    
+/* Container__Nombre__Temperamentos */
+.Container__Nombre__Temperamentos{
+    height: 26%;
 }
 
-.CardTextName{
-    width: 50%;
-}
-
-.CardDog h2{
-    font-size: 14px;
+/* Nombre */
+.Container__Nombre__Temperamentos .Nombre{
     text-align: center;
+    padding-top: 5px;
+    height: 40%;
 }
 
+.Container__Nombre__Temperamentos .Nombre span{
+    font-size: 15px;
+    font-weight: bold;
+}
 
-/* ------------------------------------- */
-
-.CardTextPeso{
+/* Temperamentos */
+.Container__Nombre__Temperamentos .Temperamentos{
+    margin-top: -5px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    width: 50%;
+    height: 60%;
 }
 
+.Container__Nombre__Temperamentos .Temperamentos .divTemperamento{
+    margin: 3px 5px 3px 5px;
+    background-color: rgb(70, 7, 70);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    border-radius: 5px;
+    height: 14px;
+}
 
+.Container__Nombre__Temperamentos .Temperamentos .divTemperamento span{
+    font-size: 10px;
+}
 
-.CardTextPeso span{
-    margin-top: -10px;
-    margin-bottom: 10px;
+/* Texto Peso */
+.CardTextPeso{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.CardTextPeso .TituloPeso{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.CardTextPeso .Text{
     font-size: 12px;
 }

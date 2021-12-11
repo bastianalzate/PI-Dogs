@@ -1,0 +1,93 @@
+.NavbarContainer{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    background-color: black;
+}
+
+.Navbar{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    background-color: black;
+}
+
+
+
+.Navbar__Logo{
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.Navbar__Logo img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+.Navbar__Buscador{
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    align-items: center;
+}
+
+.Navbar__Buscador input{
+    padding: 5px 15px 5px 15px;
+    outline: none;
+}
+
+.Navbar__Buscador img{
+    height: 27px;
+    width: 28px;
+    margin-right: 5px;
+}
+
+/* Lista */
+.Navbar__Lista{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.Navbar__Lista ul{
+    display: flex;
+    align-items: center;
+}
+
+.Navbar__Lista ul li{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.Navbar__Lista ul li span{
+    color: white;
+    font-size: 14px;
+}
+
+.Boton__Cambio__Modo{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+.Boton__Cambio__Modo img{
+    height: 24px;
+    width: 24px;
+}
+
+.Active{
+    border-bottom: 2px solid purple;
+    padding: 0px 2px 0px 2px;
+}
