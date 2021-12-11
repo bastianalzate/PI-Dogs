@@ -17,8 +17,11 @@ import {
     MODE_NOCTURNE,
  
 } from "../action-types/index";
+import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
 
-
+axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
 //Obtener
 
@@ -26,10 +29,9 @@ import {
 export const getAllDogs = () => {
     //obtener todos los perros en /dogs por medio de un get
     return (dispatch) => {
-        fetch("http://localhost:3001/dogs")
-        .then(response => response.json())
+        axios("/dogs")
         .then(response => {
-            const mapeo = response.map(dog => {
+            const mapeo = response.data.map(dog => {
                 if(dog.proviene === "API"){
                     if(dog.pesoMax && dog.pesoMin) return dog;
                     else{
@@ -91,10 +93,9 @@ export const getDescription = (id) => {
 export const getAllTemperament = () => {
     // Obtengo todos los temperamentos de mi back
     return (dispatch) => {
-        fetch("http://localhost:3001/temperament")
-        .then(response => response.json())
+        axios("/temperament")
         .then(response => {
-            dispatch({type: GET_ALL_TEMPERAMENT, payload: response})
+            dispatch({type: GET_ALL_TEMPERAMENT, payload: response.data})
         })
     }
 }
