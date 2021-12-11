@@ -3,11 +3,7 @@ const router = express();
 const dogs = require("./dogsRoute");
 const temperamento = require("./temperamentRoute");
 
-
-
-
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
+// Rutas principales
 router.use("/dogs", dogs)
 router.use("/temperament", temperamento)
 

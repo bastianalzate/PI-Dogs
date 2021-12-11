@@ -3,7 +3,7 @@ const { Router } = require("express");
 const router = Router();
 const { Temperamento } = require("../db");
 
-
+// Get a /temperament
 router.get("/", async (req, res) => {
     // Me traigo los Dogs de la api
     const resultado = await axios.get(`https://api.thedogapi.com/v1/breeds`);
@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
         return aux;
     });
 
-    const limparValoresUndefined = listaTemperamentos.flat().filter(Boolean); // limpio todo lo que sea null, undefine
+    const limparValoresUndefined = listaTemperamentos.flat().filter(Boolean); // limpio todo lo que sea null, undefine sin importar el nivel en el que este en el array
     const valoresUnicos = new Set(limparValoresUndefined); // Quito todas las repeticiones y solo dejo un valor unico
     const resultadoFinal = [...valoresUnicos]; // hago destructurin del array valores unicos y los guardo en resultadoFinal
 

@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const { Dog, Temperamento } = require("../db");
+const { Dog, Temperamento } = require("../db"); // me lo traigo desde db, por que viene con la conexion al sequelize
 const { 
     getDogsForNameDb,
     getDogsForNameApi,
@@ -11,7 +11,7 @@ const {
 } = require("../controllers/dogsControllers");
 
 
-
+// Get a /dogs para obtener un dog por su id
 router.get("/:id", async (req, res) => {
 
     // valido si me llega un id por parametro
@@ -78,31 +78,38 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
     // Destructuro los datos que me llegan por body
     const { nombre, alturaMax, alturaMin, pesoMax, pesoMin, edadMax, edadMin, imagen, temperamento, colorFondo } = req.body;
-    try{
         // Creo el Dog
-        const resultado = await Dog.create({
+        // const resultado = await Dog.create({
+        //     nombre, alturaMax, alturaMin, pesoMax, pesoMin, edadMax, edadMin, imagen, colorFondo
+        // })
+
+        Dog.create({
             nombre, alturaMax, alturaMin, pesoMax, pesoMin, edadMax, edadMin, imagen, colorFondo
         })
+        .then(async response => {
+            for(let i = 0; i < temperamento.length; i++){
+                response.addTemperamentos(await Temperamento.findOne({ // busco por nombre de temperamento y el que encuentre lo agrego a la tabla intermedia
+                    where: {
+                        nombre: temperamento[i]
+                    }
+                }))
+            }
+        })
+        .catch(err => err)
 
         // Agrego los temperamentos que me llegan por body a la tabla intermedia, junto con el resultado que en este caso es la persona que se acabo de agregar a la base de datos
-        for(let i = 0; i < temperamento.length; i++){
-            resultado.addTemperamentos(await Temperamento.findOne({ // busco por nombre de temperamento y el que encuentre lo agrego a la tabla intermedia
-                where: {
-                    nombre: temperamento[i]
-                }
-            }))
-            
-        }
+        // for(let i = 0; i < temperamento.length; i++){
+        //     resultado.addTemperamentos(await Temperamento.findOne({ // busco por nombre de temperamento y el que encuentre lo agrego a la tabla intermedia
+        //         where: {
+        //             nombre: temperamento[i]
+        //         }
+        //     }))
+        // }
         
       
         res.send("ok");
-    }
     // Si algo sale mal entrar aqui en el catch
-    catch(err){
-        console.log(err)
-        res.send({error: err});
-    }
-})  
-
+    
+})   
 
 module.exports = router;
