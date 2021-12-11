@@ -1,8 +1,12 @@
+// Modulos externos
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
-import { getDescription, getDogsForName } from "../../actions/actions";
 import { NavLink } from "react-router-dom";
+
+// Modulos internos
+import { getDescription } from "../../actions/actions";
+
+// Estilos
 import s from "./DescriptionDog.module.css";
 
 const DescriptionDog = ({match}) => {
@@ -19,13 +23,17 @@ const DescriptionDog = ({match}) => {
 
     return(
         <div className={s.Container} >
+
             <div className={s.DescriptionDog}>
+
                 <div className={s.Home}>
                     <NavLink to="/home">
                         <button>Home</button>
                     </NavLink>
                 </div>
+
                 <div className={s.Container__Description}>
+
                     <div className={s.Imagen}>
                         <img src={imagen} width="220px" height="220px"/>
                     </div>
@@ -53,7 +61,6 @@ const DescriptionDog = ({match}) => {
                         <br/>
                     </div>
                 </div>
-                
             </div>
         </div>
     )

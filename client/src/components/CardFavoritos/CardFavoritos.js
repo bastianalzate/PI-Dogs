@@ -1,10 +1,17 @@
+// Modulos externos
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+
+// Modulos internos
 import { removeFavorites } from "../../actions/actions";
+import { getDescription } from "../../actions/actions";
+
+// Imagenes
 import Eliminar from "../../assets/img/eliminar.png";
 import EliminarHover from "../../assets/img/eliminarHover.png";
-import { getDescription } from "../../actions/actions";
+
+// Estilos
 import s from "./CardFavoritos.module.css"
 
 

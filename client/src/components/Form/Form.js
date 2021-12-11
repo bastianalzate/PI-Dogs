@@ -1,14 +1,25 @@
+// Modulos externos
 import React, { useEffect, useState } from "react";
-import s from "./Form.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { sendData, validarError } from "./controllerForm";
 import { useHistory } from "react-router";
+import { NavLink } from "react-router-dom";
+
+// Modulos internos
+import { sendData, validarError } from "./controllerForm";
 import { getAllDogs } from "../../actions/actions";
+
+// Imagenes
 import Validate from "../../assets/other/check.png"
 import Home from "../../assets/img/home.png";
+
+// Componentes
 import CardFormulario from "../CardFormulario/CardFormulario";
 import ListaTemperamentos from "../ListaTemperamentos/ListaTemperamentos";
-import { NavLink } from "react-router-dom";
+
+// Estilos
+import s from "./Form.module.css";
+
+
 
 const Form = () => {
     const [editarLista, setEditarLista] = useState(false);
@@ -49,6 +60,7 @@ const Form = () => {
         })
     }
 
+
     const handleOnChange = (e) => {
         setInput({
             ...input,
@@ -62,7 +74,7 @@ const Form = () => {
         
     }
 
-
+//  Agrega temperamentos al array
     const agregarTemperamento = (e) => {
         const encontrado = input.temperamento.find(temp => temp === e.target.value)
         if(!encontrado){
@@ -83,6 +95,7 @@ const Form = () => {
             setTimeout(() => {
                 clearState();
                 dispatch(getAllDogs()) // dispacho a getAllDog para que me aparezcan los cambios en el home
+                setMensajeOk(false)
                 history.push("/home")
             }, 2000)
         }

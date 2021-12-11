@@ -17,6 +17,7 @@ function App() {
   return (
     <div>
       <Switch>
+        {/* Ruta Favoritos */}
         <Route exact path="/favoritos">
           <div className={modeNocturne ? `${s.App__Favorite__Oscuro}` : `${s.App__Favorite__Claro}`}>
             <Navbar />
@@ -24,14 +25,20 @@ function App() {
             <Footer />
           </div>
         </Route>
+
+        {/* Ruta Description */}
         <Route exact path={`/dog-description/:id`}>
             {({match}) => <div className={s.App__Description}><DescriptionDog match={match}/></div>}
         </Route>
+
+        {/* Ruta Crear Dog */}
         <Route exact path="/crear-dog">
           <div className={modeNocturne ? `${s.App__Formulario__Oscuro}` : `${s.App__Formulario__Claro}`}>
             <Form />
           </div>
         </Route>
+
+        {/* Ruta Home */}
         <Route exact path="/home">
           <div className={modeNocturne ? `${s.App__Home__Oscuro}` : `${s.App__Home__Claro}`} >
             <Navbar />
@@ -39,16 +46,21 @@ function App() {
             <Footer />
           </div>
         </Route>
+
+        {/* Ruta / */}
         <Route exact path="/">
           <div className={s.App__InitialPage}>
             <InitialPage />
           </div>
         </Route>
+
+        {/* Error 404 */}
         <Route path="/">
           <div className={s.App__404}>
             <NotFound />
           </div>
         </Route>
+        
       </Switch>
     </div>
   );

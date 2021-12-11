@@ -1,7 +1,11 @@
+// Modulos externos
 import React from "react";
-import { NavLink } from "react-router-dom";
+
+// Imagenes
 import Linkedin from "../../assets/otherImg/linkedin.png";
 import Github from "../../assets/otherImg/github.png";
+
+// Estilos
 import s from "./Footer.module.css";
 
 
@@ -11,10 +15,10 @@ const Footer = () => {
             
             <div className={s.Redes__Sociales}>
                 <div >
-                    <a href="#">
+                    <a href="https://github.com/bastianalzate" target="_blank">
                         <img src={Github} width="32px" height="32px"/>
                     </a>
-                    <a href="#">
+                    <a href="https://www.linkedin.com/in/bastianalzate/"  target="_blank">
                         <img src={Linkedin} width="32px" height="32px"/>
                     </a> 
                 </div>
@@ -22,6 +26,7 @@ const Footer = () => {
             <div className={s.Copy}>
                 <span>Desarrollado por Bastian Alzate © 2021</span>
             </div>
+            
         </div>
     )
 }

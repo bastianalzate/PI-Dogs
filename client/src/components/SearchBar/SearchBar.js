@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router";
 import { getAllDogs, getAllTemperament, getDogsForName } from "../../actions/actions";
 
@@ -8,7 +8,7 @@ const SearchBar = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    useEffect(async () => {
+    useEffect(() => {
         dispatch(getAllDogs())
         dispatch(getAllTemperament())
     }, [])
