@@ -9,7 +9,7 @@ const getDogsForNameDb = async (nombre) => {
         const resultado = await Dog.findAll({
             where: {
                 nombre: {
-                    [Op.substring]: nombre 
+                    [Op.substring]: nombre // buscar un nombre donde contenga la palabra ingresada
                 }
             }
         })
@@ -124,7 +124,7 @@ const getAllDogsApi = async () => {
     }
     // Si algo sale mal entrar aqui en el catch
     catch(err){
-
+        return err;
     }
 }
 
