@@ -429,6 +429,37 @@
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.658);
     backdrop-filter: blur(7px);
+    animation-name: latido;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-direction: alternate;
+}
+
+@keyframes latido{
+    0%{
+        border-top: 1px solid purple;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+    }
+    33%{
+        border-left: 1px solid purple;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+    }
+    66%{
+        border-bottom: 1px solid purple;
+        border-left: 1px solid black;
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+    }
+    100%{
+        border-right: 1px solid purple;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
+        border-top: 1px solid black;
+    } 
 }
 
 .Ventana__VistaPrevia .Boton{
@@ -460,6 +491,11 @@
     height: 40%;
     text-align: center;
     padding: 10px 0px 10px 0px;
+    width: 100%;
+}
+
+.Ventana__VistaPrevia .Imagen__VistaPrevia img{
+    width: 100%;
 }
 
 .Ventana__VistaPrevia .Imagen__VistaPrevia img{
